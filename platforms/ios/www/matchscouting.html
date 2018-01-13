@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/matchscouting.css">
+        <link rel="stylesheet" href="/css/materialize.min.css">
+        <title>NerdyScout</title>
+    </head>
+    <body>
+      <h1>Match Scouting</h1>
+        <div class = "valign-wrapper">
+          <div class="valign center-block">
+            <!-- <h1 class = "center-align">NerdyScout2018</h1> -->
+            <img style="padding:20px"src="img/frclogo.png" width="300" height="300"/>
+            <div class="row center-block" >
+              <a href="index.html" class = "center-align btn">Home</a>
+              <a href="pitscouting.html" class = "center-align btn disabled">Pit Scouting</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <!DOCTYPE html>
+<html>
+<body>
+
+  <form action="/action_page.php">
+            Team Number:<br>
+            <input type="text" value="">
+            <br>
+            Alliance Color:<br>
+            <input type="text" value="">
+            <br>
+            Auto Rating:<br>
+            <input type="text" value="">
+            <br>
+            Defense Rating:<br>
+            <input type="text" value="">
+            <br>
+            Can Robot Scale?:<br>
+            <select name="Yes or No">
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <br>
+            Can Robot Climb?:<br>
+            <input type="text" value="">
+            <br>
+            Speed Rating:<br>
+            <input type="text" value="">
+            <br>
+            End Game Score:<br>
+            <input type="text" value="">
+            <br>
+            Any Yellow/Red Cards?:<br>
+            <input type="text" value="">
+            <br>
+            Win or Lose:<br>
+            <input type="text"   value="">
+            <br>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/matchscouting.js"></script>
+        <script src="js/materialize.min.js" charset="utf-8"></script>
+    </body>
+</html>

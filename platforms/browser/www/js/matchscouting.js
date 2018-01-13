@@ -44,9 +44,3 @@ var app = {
 };
 
 app.initialize();
-
-//Do any javascript-related styling (e.g. animate) here
-function initHTML(){
-    document.getElementById("logo").classList.add("animated bounce");
-    $('ul.tabs').tabs();
-}
