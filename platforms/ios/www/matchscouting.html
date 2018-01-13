@@ -24,49 +24,42 @@
             <!-- <h1 class = "center-align">NerdyScout2018</h1> -->
             <img style="padding:20px"src="img/frclogo.png" width="300" height="300"/>
             <div class="row center-block" >
-              <a href="index.html" class = "center-align btn">Home</a>
-              <a href="pitscouting.html" class = "center-align btn disabled">Pit Scouting</a>
+              <a href="index.html" class = "btn red hoverable">Home</a>
+              <a class="btn teal hoverable" href="pitscouting.html">Pit Scouting</a>
             </div>
           </div>
         </div>
         <div>
-          <!DOCTYPE html>
-<html>
-<body>
-
-  <form action="/action_page.php">
+          <form action="results.php" method="post">
             Team Number:<br>
-            <input type="text" value="">
+            <input type="text" name="team" value="">
             <br>
             Alliance Color:<br>
-            <input type="text" value="">
+            <input type="text" name="color" value="">
             <br>
             Auto Rating:<br>
-            <input type="text" value="">
+            <input type="text" name="auto" value="">
             <br>
             Defense Rating:<br>
-            <input type="text" value="">
+            <input type="text" name="defense" value="">
             <br>
             Can Robot Scale?:<br>
-            <select name="Yes or No">
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
+            <input type="text" name="scale" value="">
             <br>
             Can Robot Climb?:<br>
-            <input type="text" value="">
+            <input type="text" name="climb" value="">
             <br>
             Speed Rating:<br>
-            <input type="text" value="">
+            <input type="text" name="speed" value="">
             <br>
             End Game Score:<br>
-            <input type="text" value="">
+            <input type="text" name="score" value="">
             <br>
             Any Yellow/Red Cards?:<br>
-            <input type="text" value="">
+            <input type="text" name="cards" value="">
             <br>
             Win or Lose:<br>
-            <input type="text"   value="">
+            <input type="text" name="winlose" value="">
             <br>
             <input type="submit" value="Submit">
           </form>
