@@ -16,6 +16,11 @@
         <link rel="stylesheet" type="text/css" href="css/matchscouting.css">
         <link rel="stylesheet" href="/css/materialize.min.css">
         <title>NerdyScout</title>
+        <div class="nav">
+          <a class="home" href="index.html">Home</a>
+          <a class="home" href="pitscouting.html">Pit Scouting</a>
+          <a class="home" href="matchscouting.html">Match Scouting</a>
+        </div>
     </head>
     <body>
       <h1>Match Scouting</h1>
@@ -24,8 +29,9 @@
             <!-- <h1 class = "center-align">NerdyScout2018</h1> -->
             <img style="padding:20px"src="img/frclogo.png" width="300" height="300"/>
             <div class="row center-block" >
-              <a href="index.html" class = "btn red hoverable">Home</a>
-              <a class="btn teal hoverable" href="pitscouting.html">Pit Scouting</a>
+              <!--Since we have the navbar don't really need the buttons -->
+              <!-- <a href="index.html" class = "btn red hoverable">Home</a>
+              <a class="btn teal hoverable" href="pitscouting.html">Pit Scouting</a> -->
             </div>
           </div>
         </div>
@@ -43,10 +49,10 @@
             Defense Rating:<br>
             <input type="text" name="defense" value="">
             <br>
-            Can Robot Scale?:<br>
+            Did Robot Scale?:<br>
             <input type="text" name="scale" value="">
             <br>
-            Can Robot Climb?:<br>
+            Did Robot Climb?:<br>
             <input type="text" name="climb" value="">
             <br>
             Speed Rating:<br>
@@ -60,6 +66,9 @@
             <br>
             Win or Lose:<br>
             <input type="text" name="winlose" value="">
+            <br>
+            Additional Notes?:<br>
+            <input type="text" name="notes" value="">
             <br>
             <input type="submit" value="Submit">
           </form>
