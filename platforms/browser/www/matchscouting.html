@@ -36,7 +36,9 @@
           </div>
         </div>
         <div>
-          <form action="results.php" method="post">
+          <!-- Need to find a different to make a form and save the data if this won't work with PHP. For now will
+          continue to use this method -->
+          <form method="post" id="form_name" onsubmit="getValue()">
             Team Number:<br>
             <input type="text" name="team" value="">
             <br>
@@ -70,7 +72,7 @@
             Additional Notes?:<br>
             <input type="text" name="notes" value="">
             <br>
-            <input type="submit" value="Submit">
+            <input type="submit" name="submit_tag" id="btn_tag" value="Submit by Tag" />
           </form>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
@@ -78,3 +80,10 @@
         <script src="js/materialize.min.js" charset="utf-8"></script>
     </body>
 </html>
+<script type="text/javascript">
+  function getValue(){
+    // var teamName = document.getElementByID("team").value();
+    alert("Worked");
+  }
+
+</script>
