@@ -36,12 +36,18 @@
     <link rel="stylesheet" href="/css/animate.css">
     <script type="text/javascript" src="js/index.js"></script>
     <title>NerdyScout</title>
+    <div class="nav">
+      <a class="home" href="index.html">Home</a>
+      <a class="home" href="pitscouting.html">Pit Scouting</a>
+      <a class="home" href="matchscouting.html">Match Scouting</a>
+    </div>
 </head>
 
 <body id="frontPage" onload="initHTML()">
     <!-- Tabs -->
     <center>
-        <div class="center-block center-align row">
+      <!--I commented out the old code below -->
+        <!-- <div class="center-block center-align row">
             <div class="col s12">
                 <ul class="tabs">
                     <li class="tabs col s3">
@@ -55,9 +61,9 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <!-- Main -->
-        <div class="valign-wrapper">
+        <!-- <div class="valign-wrapper">
             <div class="col s12">
                 <div class="valign center-block">
                     <center><img src="img/frclogo.png" id="logo" class="center-align"></center>
@@ -67,6 +73,20 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+        <!-- I used the same code for the main part of the page as I did with the other pages. The old code
+        is commented out above -->
+        <h1>NerdHerd 687 Scouting</h1>
+        <div class = "valign-wrapper">
+          <div class="valign center-block">
+            <!-- <h1 class = "center-align">NerdyScout2018</h1> -->
+            <img style="padding:20px"src="img/frclogo.png" width="300" height="300"/>
+            <div class="row center-block" >
+              <!--Since we have the navbar don't really need the buttons -->
+              <!-- <a href="matchscouting.html" class = "btn red hoverable">Match Scouting</a>
+              <a class="btn teal hoverable" href="pitscouting.html">Pit Scouting</a> -->
+            </div>
+          </div>
         </div>
     </center>
     <script type="text/javascript" src="cordova.js"></script>
