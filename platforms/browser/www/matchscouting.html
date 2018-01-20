@@ -16,10 +16,12 @@
         <link rel="stylesheet" type="text/css" href="css/matchscouting.css">
         <link rel="stylesheet" href="/css/materialize.min.css">
         <title>NerdyScout</title>
-        <div class="nav">
-          <a class="home" href="index.html">Home</a>
-          <a class="home" href="pitscouting.html">Pit Scouting</a>
-          <a class="home" href="matchscouting.html">Match Scouting</a>
+        <div class="nav-wrapper">
+           <nav class="blue white-text">
+             <a class="home" href="index.html">Home</a>
+             <a class="home" href="pitscouting.html">Pit Scouting</a>
+             <a class="home" href="matchscouting.html">Match Scouting</a>                 <!-- <center><img src="img/frclogo.png" id="logo" class="center-align"></center> -->
+           </nav>
         </div>
     </head>
     <body>
@@ -38,42 +40,45 @@
         <div>
           <!-- Need to find a different to make a form and save the data if this won't work with PHP. For now will
           continue to use this method -->
-          <form method="post" id="form_name" onsubmit="getValue()">
-            Team Number:<br>
-            <input type="text" name="team" value="">
-            <br>
-            Alliance Color:<br>
-            <input type="text" name="color" value="">
-            <br>
-            Auto Rating:<br>
-            <input type="text" name="auto" value="">
-            <br>
-            Defense Rating:<br>
-            <input type="text" name="defense" value="">
-            <br>
-            Did Robot Scale?:<br>
-            <input type="text" name="scale" value="">
-            <br>
-            Did Robot Climb?:<br>
-            <input type="text" name="climb" value="">
-            <br>
-            Speed Rating:<br>
-            <input type="text" name="speed" value="">
-            <br>
-            End Game Score:<br>
-            <input type="text" name="score" value="">
-            <br>
-            Any Yellow/Red Cards?:<br>
-            <input type="text" name="cards" value="">
-            <br>
-            Win or Lose:<br>
-            <input type="text" name="winlose" value="">
-            <br>
-            Additional Notes?:<br>
-            <input type="text" name="notes" value="">
-            <br>
-            <input type="submit" name="submit_tag" id="btn_tag" value="Submit by Tag" />
-          </form>
+          <div class="container">
+            <form method="post" id="form_name" onsubmit="getValue()">
+              Team Number:<br>
+              <input type="text" name="team" value="">
+              <br>
+              Alliance Color:<br>
+              <input type="text" name="color" value="">
+              <br>
+              Auto Rating:<br>
+              <input type="text" name="auto" value="">
+              <br>
+              Defense Rating:<br>
+              <input type="text" name="defense" value="">
+              <br>
+              Did Robot Scale?:<br>
+              <input type="text" name="scale" value="">
+              <br>
+              Did Robot Climb?:<br>
+              <input type="text" name="climb" value="">
+              <br>
+              Speed Rating:<br>
+              <input type="text" name="speed" value="">
+              <br>
+              End Game Score:<br>
+              <input type="text" name="score" value="">
+              <br>
+              Any Yellow/Red Cards?:<br>
+              <input type="text" name="cards" value="">
+              <br>
+              Win or Lose:<br>
+              <input type="text" name="winlose" value="">
+              <br>
+              Additional Notes?:<br>
+              <input type="text" name="notes" value="">
+              <br>
+              <a type="submit" class = "btn blue" name="submit_tag" id="btn_tag" value="Submit by Tag" />Submit</a>
+            </form>
+          </div>
+
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/matchscouting.js"></script>

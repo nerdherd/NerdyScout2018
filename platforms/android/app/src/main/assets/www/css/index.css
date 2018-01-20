@@ -113,19 +113,17 @@ h1 {
 }
 
 .nav {
-  background-color: #1c3f95;
-  color: #fdfdfd;
   overflow: hidden;
 }
 
 .nav a {
-  float:left;
+  /* float:left;
   text-align:center;
   padding:14px 16px;
-  font-size: 17px;
+  font-size: 17px; */
 }
 
 .nav a:hover {
-  background-color: #a9a9f5;
-  color: #fdfdfd;
+  /* background-color: #a9a9f5;
+  color: #fdfdfd; */
 }
