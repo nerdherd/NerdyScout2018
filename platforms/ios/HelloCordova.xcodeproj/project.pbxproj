@@ -20,6 +20,17 @@
 		333372CB6AD04320AB2AF96D /* CDVLocalFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDED7F4218641BCBA8D7FC6 /* CDVLocalFilesystem.m */; };
 		5E95243EADE24BBCBE463816 /* CDVAssetLibraryFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC9D407F81842D3876BBA4C /* CDVAssetLibraryFilesystem.m */; };
 		9DD7D199BC1D47FCAA29A88D /* CDVFileTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E97A91CC3924B9FB0DD2235 /* CDVFileTransfer.m */; };
+		2D193A99BAA14D07931D1B18 /* AppDelegate+FirebasePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 14742D62E0A449A79760E063 /* AppDelegate+FirebasePlugin.m */; };
+		1AFD6B01F4914D0D9DE29C61 /* FirebasePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D82FF1FB5774C2AA8C7A3C3 /* FirebasePlugin.m */; };
+		2306FF7AE25E4BE7BFA73694 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 168DCD8091A14E689D51D4C8 /* GoogleService-Info.plist */; };
+		B31642AE452645768FABF6AB /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2753005D8224E23A17694B5 /* FirebaseInstanceID.framework */; };
+		B32A977690B548CD82329853 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0C185D647C47D08E98F180 /* GoogleInterchangeUtilities.framework */; };
+		D294B1F19585405BAC365ABA /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F74BFA950D46308DA643C1 /* GoogleSymbolUtilities.framework */; };
+		A58F41900A45486FA7FFE70C /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F8FF7AC38A47CF93B52F56 /* GoogleUtilities.framework */; };
+		45957E8061D74D608AE3B474 /* GoogleIPhoneUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A21A7DC83FD4A11AF63FC2D /* GoogleIPhoneUtilities.framework */; };
+		B8B33E2523C64505B31C54FA /* FirebaseCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41FDB848FBDE44C9B4D78CEF /* FirebaseCrash.framework */; };
+		FF2EB1D38D9B4A4C9A755E57 /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9834FFFA45834A298594FA41 /* FirebaseRemoteConfig.framework */; };
+		DFA60B8537094CFC8E417249 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB445D7573E4AD3AEB20EB5 /* FirebaseDatabase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +79,20 @@
 		B9CDBB55E2054F01B44B0FDE /* CDVAssetLibraryFilesystem.h */ = {isa = PBXFileReference; name = "CDVAssetLibraryFilesystem.h"; path = "cordova-plugin-file/CDVAssetLibraryFilesystem.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		1E97A91CC3924B9FB0DD2235 /* CDVFileTransfer.m */ = {isa = PBXFileReference; name = "CDVFileTransfer.m"; path = "cordova-plugin-file-transfer/CDVFileTransfer.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		095A5DF9B0B347CEAD606A44 /* CDVFileTransfer.h */ = {isa = PBXFileReference; name = "CDVFileTransfer.h"; path = "cordova-plugin-file-transfer/CDVFileTransfer.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		14742D62E0A449A79760E063 /* AppDelegate+FirebasePlugin.m */ = {isa = PBXFileReference; name = "AppDelegate+FirebasePlugin.m"; path = "cordova-plugin-firebase-realtime-database/AppDelegate+FirebasePlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		8D82FF1FB5774C2AA8C7A3C3 /* FirebasePlugin.m */ = {isa = PBXFileReference; name = "FirebasePlugin.m"; path = "cordova-plugin-firebase-realtime-database/FirebasePlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		B2E598D6CCDF4C68BAF51735 /* AppDelegate+FirebasePlugin.h */ = {isa = PBXFileReference; name = "AppDelegate+FirebasePlugin.h"; path = "cordova-plugin-firebase-realtime-database/AppDelegate+FirebasePlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		856E821BECAE41B3BB225AB2 /* FirebasePlugin.h */ = {isa = PBXFileReference; name = "FirebasePlugin.h"; path = "cordova-plugin-firebase-realtime-database/FirebasePlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		ECE30113AFD84846B078501F /* Firebase.h */ = {isa = PBXFileReference; name = "Firebase.h"; path = "cordova-plugin-firebase-realtime-database/Firebase.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		168DCD8091A14E689D51D4C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = text.plist.xml; explicitFileType = undefined; includeInIndex = 0; };
+		B2753005D8224E23A17694B5 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; name = "FirebaseInstanceID.framework"; path = "HelloCordova/Plugins/cordova-plugin-firebase-realtime-database/FirebaseInstanceID.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		CB0C185D647C47D08E98F180 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; name = "GoogleInterchangeUtilities.framework"; path = "HelloCordova/Plugins/cordova-plugin-firebase-realtime-database/GoogleInterchangeUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		22F74BFA950D46308DA643C1 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; name = "GoogleSymbolUtilities.framework"; path = "HelloCordova/Plugins/cordova-plugin-firebase-realtime-database/GoogleSymbolUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		59F8FF7AC38A47CF93B52F56 /* GoogleUtilities.framework */ = {isa = PBXFileReference; name = "GoogleUtilities.framework"; path = "HelloCordova/Plugins/cordova-plugin-firebase-realtime-database/GoogleUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		4A21A7DC83FD4A11AF63FC2D /* GoogleIPhoneUtilities.framework */ = {isa = PBXFileReference; name = "GoogleIPhoneUtilities.framework"; path = "HelloCordova/Plugins/cordova-plugin-firebase-realtime-database/GoogleIPhoneUtilities.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		41FDB848FBDE44C9B4D78CEF /* FirebaseCrash.framework */ = {isa = PBXFileReference; name = "FirebaseCrash.framework"; path = "HelloCordova/Plugins/cordova-plugin-firebase-realtime-database/FirebaseCrash.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		9834FFFA45834A298594FA41 /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; name = "FirebaseRemoteConfig.framework"; path = "HelloCordova/Plugins/cordova-plugin-firebase-realtime-database/FirebaseRemoteConfig.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		2CB445D7573E4AD3AEB20EB5 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; name = "FirebaseDatabase.framework"; path = "HelloCordova/Plugins/cordova-plugin-firebase-realtime-database/FirebaseDatabase.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +101,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
+				B31642AE452645768FABF6AB /* FirebaseInstanceID.framework in Frameworks */,
+				B32A977690B548CD82329853 /* GoogleInterchangeUtilities.framework in Frameworks */,
+				D294B1F19585405BAC365ABA /* GoogleSymbolUtilities.framework in Frameworks */,
+				A58F41900A45486FA7FFE70C /* GoogleUtilities.framework in Frameworks */,
+				45957E8061D74D608AE3B474 /* GoogleIPhoneUtilities.framework in Frameworks */,
+				B8B33E2523C64505B31C54FA /* FirebaseCrash.framework in Frameworks */,
+				FF2EB1D38D9B4A4C9A755E57 /* FirebaseRemoteConfig.framework in Frameworks */,
+				DFA60B8537094CFC8E417249 /* FirebaseDatabase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +171,7 @@
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* HelloCordova-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
+				168DCD8091A14E689D51D4C8 /* GoogleService-Info.plist */,
 			);
 			name = Resources;
 			path = "HelloCordova/Resources";
@@ -146,6 +180,14 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B2753005D8224E23A17694B5 /* FirebaseInstanceID.framework */,
+				CB0C185D647C47D08E98F180 /* GoogleInterchangeUtilities.framework */,
+				22F74BFA950D46308DA643C1 /* GoogleSymbolUtilities.framework */,
+				59F8FF7AC38A47CF93B52F56 /* GoogleUtilities.framework */,
+				4A21A7DC83FD4A11AF63FC2D /* GoogleIPhoneUtilities.framework */,
+				41FDB848FBDE44C9B4D78CEF /* FirebaseCrash.framework */,
+				9834FFFA45834A298594FA41 /* FirebaseRemoteConfig.framework */,
+				2CB445D7573E4AD3AEB20EB5 /* FirebaseDatabase.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -179,6 +221,11 @@
 				B9CDBB55E2054F01B44B0FDE /* CDVAssetLibraryFilesystem.h */,
 				1E97A91CC3924B9FB0DD2235 /* CDVFileTransfer.m */,
 				095A5DF9B0B347CEAD606A44 /* CDVFileTransfer.h */,
+				14742D62E0A449A79760E063 /* AppDelegate+FirebasePlugin.m */,
+				8D82FF1FB5774C2AA8C7A3C3 /* FirebasePlugin.m */,
+				B2E598D6CCDF4C68BAF51735 /* AppDelegate+FirebasePlugin.h */,
+				856E821BECAE41B3BB225AB2 /* FirebasePlugin.h */,
+				ECE30113AFD84846B078501F /* Firebase.h */,
 			);
 			name = Plugins;
 			path = "HelloCordova/Plugins";
@@ -260,6 +307,7 @@
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
+				2306FF7AE25E4BE7BFA73694 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +343,8 @@
 				333372CB6AD04320AB2AF96D /* CDVLocalFilesystem.m in Sources */,
 				5E95243EADE24BBCBE463816 /* CDVAssetLibraryFilesystem.m in Sources */,
 				9DD7D199BC1D47FCAA29A88D /* CDVFileTransfer.m in Sources */,
+				2D193A99BAA14D07931D1B18 /* AppDelegate+FirebasePlugin.m in Sources */,
+				1AFD6B01F4914D0D9DE29C61 /* FirebasePlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +380,17 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				PRODUCT_NAME = "HelloCordova";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+				);
 			};
 			name = Debug;
 		};
@@ -352,6 +413,17 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				PRODUCT_NAME = "HelloCordova";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+					"\"HelloCordova/Plugins/cordova-plugin-firebase-realtime-database\"",
+				);
 			};
 			name = Release;
 		};

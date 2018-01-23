@@ -16,15 +16,37 @@
         <link rel="stylesheet" type="text/css" href="css/matchscouting.css">
         <link rel="stylesheet" href="css/materialize.min.css">
         <title>NerdyScout</title>
-        <div class="nav-wrapper">
-           <nav class="blue white-text">
-             <a class="home" href="index.html">Home</a>
-             <a class="home" href="pitscouting.html">Pit Scouting</a>
-             <a class="home" href="matchscouting.html">Match Scouting</a>                 <!-- <center><img src="img/frclogo.png" id="logo" class="center-align"></center> -->
-           </nav>
-        </div>
+        <script type="text/javascript">
+          function getValue(){
+            var team,color,auto,defense,scale,climb,speed,score,cards;
+
+            if(navigator.onLine){
+              //push to database
+            }
+            else{
+              //no wifi connection, save as local storage
+              team=document.getElementsByName('team')[0].value;
+              color=document.getElementsByName('color')[0].value;
+              auto=document.getElementsByName('auto')[0].value;
+              defense=document.getElementsByName('defense')[0].value;
+              scale=document.getElementsByName('scale')[0].value;
+              climb=document.getElementsByName('climb')[0].value;
+              speed=document.getElementsByName('speed')[0].value;
+              score=document.getElementsByName('score')[0].value;
+              cards=document.getElementsByName('cards')[0].value;
+            }
+          }
+
+        </script>
     </head>
     <body>
+      <div class="nav-wrapper">
+         <nav class="blue white-text">
+           <a class="home" href="index.html">Home</a>
+           <a class="home" href="pitscouting.html">Pit Scouting</a>
+           <a class="home" href="matchscouting.html">Match Scouting</a>                 <!-- <center><img src="img/frclogo.png" id="logo" class="center-align"></center> -->
+         </nav>
+      </div>
       <h1>Match Scouting</h1>
         <div class = "valign-wrapper">
           <div class="valign center-block">
@@ -85,10 +107,3 @@
         <script src="js/materialize.min.js" charset="utf-8"></script>
     </body>
 </html>
-<script type="text/javascript">
-  function getValue(){
-    // var teamName = document.getElementByID("team").value();
-    alert("Worked");
-  }
-
-</script>

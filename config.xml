@@ -27,4 +27,6 @@
     <engine name="ios" spec="^4.5.4" />
     <engine name="android" spec="^7.0.0" />
     <engine name="browser" spec="^5.0.3" />
+    <plugin name="cordova-plugin-indexedDB" spec="https://github.com/Microsoft/cordova-plugin-indexedDB" />
+    <plugin name="cordova-plugin-firebase-realtime-database" spec="0.0.2" />
 </widget>

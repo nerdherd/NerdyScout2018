@@ -202,6 +202,14 @@ module.exports = [
         "clobbers": [
             "window.FileTransfer"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-firebase-realtime-database/www/firebase-browser.js",
+        "id": "cordova-plugin-firebase-realtime-database.FirebaseDatabasePlugin",
+        "pluginId": "cordova-plugin-firebase-realtime-database",
+        "clobbers": [
+            "FirebaseDatabasePlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -209,7 +217,9 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-file": "5.0.0",
-    "cordova-plugin-file-transfer": "1.7.0"
+    "cordova-plugin-file-transfer": "1.7.0",
+    "cordova-plugin-indexedDB": "0.1.4",
+    "cordova-plugin-firebase-realtime-database": "0.0.2"
 }
 // BOTTOM OF METADATA
 });

@@ -22,5 +22,21 @@
     },
     "is_top_level": false,
     "variables": {}
+  },
+  "cordova-plugin-indexedDB": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/Microsoft/cordova-plugin-indexedDB"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-firebase-realtime-database": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-firebase-realtime-database@0.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

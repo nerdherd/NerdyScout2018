@@ -12,6 +12,10 @@
     <feature name="FileTransfer">
         <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
     </feature>
+    <feature name="FirebaseDatabasePlugin">
+        <param name="android-package" value="org.apache.cordova.firebase.FirebaseDatabasePlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>HelloCordova</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
