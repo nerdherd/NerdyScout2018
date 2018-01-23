@@ -16,13 +16,39 @@
         <link rel="stylesheet" type="text/css" href="css/matchscouting.css">
         <link rel="stylesheet" href="css/materialize.min.css">
         <title>NerdyScout</title>
+        <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
         <script type="text/javascript">
-          function getValue(){
-            if(navigator.onLine){
-
-            }
+          function getValue(e){
+            if (e.preventDefault) e.preventDefault();
+            var team,color,auto,defense,scale,climb,speed,score,cards;
+              //no wifi connection, save as local storage
+              team=document.getElementsByName('team')[0].value;
+              color=document.getElementsByName('color')[0].value;
+              auto=document.getElementsByName('auto')[0].value;
+              defense=document.getElementsByName('defense')[0].value;
+              scale=document.getElementsByName('scale')[0].value;
+              climb=document.getElementsByName('climb')[0].value;
+              speed=document.getElementsByName('speed')[0].value;
+              score=document.getElementsByName('score')[0].value;
+              cards=document.getElementsByName('cards')[0].value;
+              var db = window.openDatabase("Results", "v0.0", "Results", 100);
+              db.transaction(function (tx) {
+                  tx.executeSql("INSERT into TEAM(team,color,auto,defense,scale,climb,speed,score,cards) VALUES",[team,color,auto,defense,scale,climb,speed,score,cards],function (tx, result) {
+                      console.log(result);
+                      alert("Successfully inserted to DB.")
+                  }, function (error) {
+                      alert("Unsucessful insertion into DB.")
+                      console.log(error);
+                  });
+              });
+              return false;
           }
-
+          var form = document.getElementById('form');
+          if (form.attachEvent) {
+              form.attachEvent("submit", getValue);
+          } else {
+              form.addEventListener("submit", getValue);
+          }
         </script>
     </head>
     <body>
@@ -49,7 +75,7 @@
           <!-- Need to find a different to make a form and save the data if this won't work with PHP. For now will
           continue to use this method -->
           <div class="container">
-            <form method="post" id="form_name" onsubmit="getValue()">
+            <form id="form" onsubmit="getValue()">
               Team Number:<br>
               <input type="text" name="team" value="">
               <br>
@@ -83,7 +109,7 @@
               Additional Notes?:<br>
               <input type="text" name="notes" value="">
               <br>
-              <a type="submit" class = "btn blue" name="submit_tag" id="btn_tag" value="Submit by Tag" />Submit</a>
+              <input type="submit" class = "btn blue" name="submit" value="Submit"/>
             </form>
           </div>
 
