@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "508056518384",
+    "firebase_url": "https://nerdyscout2018-26ed1.firebaseio.com",
+    "project_id": "nerdyscout2018-26ed1",
+    "storage_bucket": "nerdyscout2018-26ed1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508056518384:android:3856d4ce66b24ddd",
+        "android_client_info": {
+          "package_name": "com.NerdyScout2018.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "508056518384-qs5to8lccg34c6js4on7vhh9g4c666j5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0hn25aeS1jtq5gzKeAgzbB9527y4bMNM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

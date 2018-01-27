@@ -1,121 +1,126 @@
 <html>
-    <head>
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/matchscouting.css">
-        <link rel="stylesheet" href="css/materialize.min.css">
-        <title>NerdyScout</title>
-        <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-        <script type="text/javascript">
-          function getValue(e){
-            if (e.preventDefault) e.preventDefault();
-            var team,color,auto,defense,scale,climb,speed,score,cards;
-              //no wifi connection, save as local storage
-              team=document.getElementsByName('team')[0].value;
-              color=document.getElementsByName('color')[0].value;
-              auto=document.getElementsByName('auto')[0].value;
-              defense=document.getElementsByName('defense')[0].value;
-              scale=document.getElementsByName('scale')[0].value;
-              climb=document.getElementsByName('climb')[0].value;
-              speed=document.getElementsByName('speed')[0].value;
-              score=document.getElementsByName('score')[0].value;
-              cards=document.getElementsByName('cards')[0].value;
-              var db = window.openDatabase("Results", "v0.0", "Results", 100);
-              db.transaction(function (tx) {
-                  tx.executeSql("INSERT into TEAM(team,color,auto,defense,scale,climb,speed,score,cards) VALUES",[team,color,auto,defense,scale,climb,speed,score,cards],function (tx, result) {
-                      console.log(result);
-                      alert("Successfully inserted to DB.")
-                  }, function (error) {
-                      alert("Unsucessful insertion into DB.")
-                      console.log(error);
+   <head>
+      <!--
+         Customize this policy to fit your own app's needs. For more guidance, see:
+             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+         Some notes:
+             * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+             * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                 * Enable inline JS: add 'unsafe-inline' to default-src
+         -->
+      <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+      <meta id="format-detection" content="telephone=no">
+      <!-- <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;style-src * 'unsafe-inline' 'self' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;img-src * data: 'unsafe-inline' 'self' content:;fmedia-src mediastream;"> -->
+      <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" /> -->
+      <meta id="msapplication-tap-highlight" content="no">
+      <meta id="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+      <link rel="stylesheet" type="text/css" href="css/matchscouting.css">
+      <link rel="stylesheet" href="css/materialize.min.css">
+      <title>NerdyScout</title>
+      <script type="text/javascript" src="cordova.js"></script>
+      <script src="js/jquery.min.js" charset="utf-8"></script>
+      <script src="js/materialize.min.js" charset="utf-8"></script>
+      <script type="text/javascript">
+      $(document).ready(function() {
+          $("#submit").click(function() {
+               var team,color,auto,defense,scale,climb,speed,score,cards;
+               //no wifi connection, save as local storage
+               team=$("#team").val();
+               color=$("#color").val();
+               auto=$("#auto").val();
+               defense=$("#defense").val();
+               scale=$("#scale").val();
+               climb=$("#climb").val();
+               speed=$("#speed").val();
+               score=$("#score").val();
+               cards=$("#cards").val();
+              var dataString = "team=" + team + "&color=" + color + "&auto=" + auto + "&defense="+defense+"&scale="+scale+"&climb="+climb+"&speed="+speed+"&score="+score+"&cards="+cards;
+                  $.ajax({
+                      type: "POST",
+                      url: "http://cors.io/?https://nerdyscout2018.000webhostapp.com/www/main.php",
+                      data: dataString,
+                      crossDomain: true,
+                      cache: false,
+                      beforeSend: function() {
+                          $("#submit").val('Connecting...');
+                          alert("about to send!");
+                      },
+                      success: function(data) {
+                          if (data == "success") {
+                              alert("inserted");
+                              $("#submit").val('submit');
+                          } else if (data == "error") {
+                              alert("error");
+                          }
+                      }
                   });
-              });
               return false;
-          }
-          var form = document.getElementById('form');
-          if (form.attachEvent) {
-              form.attachEvent("submit", getValue);
-          } else {
-              form.addEventListener("submit", getValue);
-          }
-        </script>
-    </head>
-    <body>
+          });
+      });
+      </script>
+   </head>
+   <body>
       <div class="nav-wrapper">
          <nav class="blue white-text">
-           <a class="home" href="index.html">Home</a>
-           <a class="home" href="pitscouting.html">Pit Scouting</a>
-           <a class="home" href="matchscouting.html">Match Scouting</a>                 <!-- <center><img src="img/frclogo.png" id="logo" class="center-align"></center> -->
+            <a class="home" href="index.html">Home</a>
+            <a class="home" href="pitscouting.html">Pit Scouting</a>
+            <a class="home" href="matchscouting.html">Match Scouting</a>                 <!-- <center><img src="img/frclogo.png" id="logo" class="center-align"></center> -->
          </nav>
       </div>
       <h1>Match Scouting</h1>
-        <div class = "valign-wrapper">
-          <div class="valign center-block">
+      <div class = "valign-wrapper">
+         <div class="valign center-block">
             <!-- <h1 class = "center-align">NerdyScout2018</h1> -->
             <img style="padding:20px"src="img/frclogo.png" width="300" height="300"/>
             <div class="row center-block" >
-              <!--Since we have the navbar don't really need the buttons -->
-              <!-- <a href="index.html" class = "btn red hoverable">Home</a>
-              <a class="btn teal hoverable" href="pitscouting.html">Pit Scouting</a> -->
+               <!--Since we have the navbar don't really need the buttons -->
+               <!-- <a href="index.html" class = "btn red hoverable">Home</a>
+                  <a class="btn teal hoverable" href="pitscouting.html">Pit Scouting</a> -->
             </div>
-          </div>
-        </div>
-        <div>
-          <!-- Need to find a different to make a form and save the data if this won't work with PHP. For now will
-          continue to use this method -->
-          <div class="container">
-            <form id="form" onsubmit="getValue()">
-              Team Number:<br>
-              <input type="text" name="team" value="">
-              <br>
-              Alliance Color:<br>
-              <input type="text" name="color" value="">
-              <br>
-              Auto Rating:<br>
-              <input type="text" name="auto" value="">
-              <br>
-              Defense Rating:<br>
-              <input type="text" name="defense" value="">
-              <br>
-              Did Robot Scale?:<br>
-              <input type="text" name="scale" value="">
-              <br>
-              Did Robot Climb?:<br>
-              <input type="text" name="climb" value="">
-              <br>
-              Speed Rating:<br>
-              <input type="text" name="speed" value="">
-              <br>
-              End Game Score:<br>
-              <input type="text" name="score" value="">
-              <br>
-              Any Yellow/Red Cards?:<br>
-              <input type="text" name="cards" value="">
-              <br>
-              Win or Lose:<br>
-              <input type="text" name="winlose" value="">
-              <br>
-              Additional Notes?:<br>
-              <input type="text" name="notes" value="">
-              <br>
-              <input type="submit" class = "btn blue" name="submit" value="Submit"/>
+         </div>
+      </div>
+      <div>
+         <!-- Need to find a different to make a form and save the data if this won't work with PHP. For now will
+            continue to use this method -->
+         <div class="container">
+            <form id="form">
+               Team Number:<br>
+               <input type="text" class = "validate" id="team" value="">
+               <br>
+               Alliance Color:<br>
+               <input type="text" class = "validate" id="color" value="">
+               <br>
+               Auto Rating:<br>
+               <input type="text" class = "validate" id="auto" value="">
+               <br>
+               Defense Rating:<br>
+               <input type="text" class = "validate" id="defense" value="">
+               <br>
+               Did Robot Scale?:<br>
+               <input type="text" class = "validate" id="scale" value="">
+               <br>
+               Did Robot Climb?:<br>
+               <input type="text" class = "validate" id="climb" value="">
+               <br>
+               Speed Rating:<br>
+               <input type="text" class = "validate" id="speed" value="">
+               <br>
+               End Game Score:<br>
+               <input type="text" class = "validate" id="score" value="">
+               <br>
+               Any Yellow/Red Cards?:<br>
+               <input type="text" class = "validate" id="cards" value="">
+               <br>
+               Win or Lose:<br>
+               <input type="text" class = "validate" id="winlose" value="">
+               <br>
+               Additional Notes?:<br>
+               <input type="text" class = "validate" id="notes" value="">
+               <br>
+               <input type="submit" class = "btn blue" id="submit" value="Submit"/>
             </form>
-          </div>
-
-        </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/matchscouting.js"></script>
-        <script src="js/materialize.min.js" charset="utf-8"></script>
-    </body>
+         </div>
+      </div>
+   </body>
 </html>
