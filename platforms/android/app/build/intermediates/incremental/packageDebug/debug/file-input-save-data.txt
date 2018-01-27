@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Jan 26 18:28:07 PST 2018
+#Fri Jan 26 18:31:20 PST 2018
 76.base=C\:\\Users\\Albert\\NerdyScout2018\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 5.base=C\:\\Users\\Albert\\NerdyScout2018\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 86.base=C\:\\Users\\Albert\\NerdyScout2018\\platforms\\android\\app\\build\\intermediates\\assets\\debug
