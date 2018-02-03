@@ -1,4 +1,5 @@
 <?php
+   header("Access-Control-Allow-Origin: *");
   include "db.php";
   if (isset($_POST['insert'])) {
       $team = $_POST['team'];
