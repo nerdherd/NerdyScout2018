@@ -14,12 +14,17 @@
       $score = $_POST['score'];
       $cards = $_POST['cards'];
 
-      $q = mysqli_query($con, "INSERT INTO entries (team,color,auto,defense,scale,score,cards) VALUES ('$team','$color','$auto','$defense','$scale','$score','$cards')");
-      if(mysqli_query($con, $q)) {
+      $result = mysqli_query($con, "DESCRIBE entries");
+      while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+        echo "{$row['Field']} - {$row['Type']}";
+      }
+      $q = mysqli_query($con, "INSERT INTO entries (teamNumber,color,autoRating,defRating,scale,climb,speed,endScore,cards) VALUES ('$team','$color','$auto','$defense','$scale','$climb','$speed','$score','$cards')");
+
+      if($q) {
         echo "Records inserted successfully.";
       }
       else {
-        echo "ERROR: Could not able to execute $q" .mysqli_error($con);
+        echo "ERROR: Could not execute $q" .mysqli_error($con);
       }
       // if ($q){
       //  echo "success";
