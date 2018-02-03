@@ -1,4 +1,4 @@
-#Fri Feb 02 17:41:25 PST 2018
+#Fri Feb 02 18:43:44 PST 2018
 base.0=C\:\\Users\\Albert\\NerdyScout2018\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 renamed.0=classes.dex
 file.0=C\:\\Users\\Albert\\NerdyScout2018\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex

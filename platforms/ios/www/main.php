@@ -1,7 +1,9 @@
 <?php
-   header("Access-Control-Allow-Origin: *");
-  include "db.php";
-  if (isset($_POST['insert'])) {
+     header("Access-Control-Allow-Origin: *");
+     $con = mysqli_connect("104.197.101.9","root","","db");
+     if(!$con){
+       die('Error:'.mysqli_connect_error());
+     }
       $team = $_POST['team'];
       $color = $_POST['color'];
       $auto = $_POST['auto'];
@@ -12,8 +14,17 @@
       $score = $_POST['score'];
       $cards = $_POST['cards'];
 
-      $q = mysqli_query($con, "INSERT INTO `entries` (`team`,`color`,`auto`,'defense','scale','score','cards') VALUES (`$team`,`$color`,`$auto`,'$defense','$scale','$score','$cards')");
-      if ($q) echo "success";
-      else echo "error";
-  }
+      $q = mysqli_query($con, "INSERT INTO entries (team,color,auto,defense,scale,score,cards) VALUES ('$team','$color','$auto','$defense','$scale','$score','$cards')");
+      if(mysqli_query($con, $q)) {
+        echo "Records inserted successfully.";
+      }
+      else {
+        echo "ERROR: Could not able to execute $q" .mysqli_error($con);
+      }
+      // if ($q){
+      //  echo "success";
+      // }
+      // else{
+      //   echo "error";
+      // }
 ?>

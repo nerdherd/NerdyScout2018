@@ -39,20 +39,23 @@
                   $.ajax({
                       type: "POST",
                       url: "https://nerdyscout2018.000webhostapp.com/main.php",
-                      data: dataString,
-                      crossDomain: true,
-                      cache: false,
+                      // data: dataString,
+                      data:{team:team,color:color,auto:auto,defense:defense,scale:scale,climb:climb,speed:speed,score:score,cards:cards},
+                      // crossDomain: true,
+                      // cache: false,
                       beforeSend: function() {
                           $("#submit").val('Connecting...');
                           alert("about to send!");
                       },
                       success: function(data) {
-                          if (data == "success") {
-                              alert("inserted");
-                              $("#submit").val('submit');
-                          } else if (data == "error") {
-                              alert("error");
-                          }
+                          // if (data == "success") {
+                          //     alert("inserted");
+                          //     $("#submit").val('submit');
+                          // } else if (data == "error") {
+                          //     alert("error");
+                          // }
+                          $("#submit").val('Submit');
+                          alert(data);
                       }
                   });
               return false;
