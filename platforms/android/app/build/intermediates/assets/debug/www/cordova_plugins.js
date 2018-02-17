@@ -196,11 +196,36 @@ module.exports = [
     "runs": true
   },
   {
-    "id": "cordova-plugin-firebase-realtime-database.FirebaseDatabasePlugin",
-    "file": "plugins/cordova-plugin-firebase-realtime-database/www/firebase.js",
-    "pluginId": "cordova-plugin-firebase-realtime-database",
+    "id": "cordova-plugin-dialogs.notification",
+    "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+    "pluginId": "cordova-plugin-dialogs",
+    "merges": [
+      "navigator.notification"
+    ]
+  },
+  {
+    "id": "cordova-plugin-dialogs.notification_android",
+    "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
+    "pluginId": "cordova-plugin-dialogs",
+    "merges": [
+      "navigator.notification"
+    ]
+  },
+  {
+    "id": "cordova-plugin-network-information.network",
+    "file": "plugins/cordova-plugin-network-information/www/network.js",
+    "pluginId": "cordova-plugin-network-information",
     "clobbers": [
-      "FirebaseDatabasePlugin"
+      "navigator.connection",
+      "navigator.network.connection"
+    ]
+  },
+  {
+    "id": "cordova-plugin-network-information.Connection",
+    "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+    "pluginId": "cordova-plugin-network-information",
+    "clobbers": [
+      "Connection"
     ]
   }
 ];
@@ -211,7 +236,8 @@ module.exports.metadata =
   "cordova-plugin-file": "5.0.0",
   "cordova-plugin-file-transfer": "1.7.0",
   "cordova-plugin-indexedDB": "0.1.4",
-  "cordova-plugin-firebase-realtime-database": "0.0.2"
+  "cordova-plugin-dialogs": "2.0.1",
+  "cordova-plugin-network-information": "2.0.1"
 };
 // BOTTOM OF METADATA
 });

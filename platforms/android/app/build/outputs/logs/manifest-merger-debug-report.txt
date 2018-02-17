@@ -1,13 +1,13 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
-INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
-INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
-INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
-MERGED from [:CordovaLib] C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
-INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
-INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
-INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
+ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-15:12
+INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-15:12
+INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-15:12
+INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-15:12
+MERGED from [:CordovaLib] C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-29:12
+INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-15:12
+INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-15:12
+INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-15:12
 	package
 		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:102-135
 		INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml
@@ -86,3 +86,11 @@ uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:13:5-81
 	android:name
 		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:13:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:14:5-79
+	android:name
+		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:14:22-76
+uses-permission#android.permission.INTERNET
+ADDED from [:CordovaLib] C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:27:5-67
+	android:name
+		ADDED from [:CordovaLib] C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:27:22-64

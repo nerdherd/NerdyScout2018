@@ -24,7 +24,139 @@ var define = {moduleMap: []};
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 require('cordova/init');
 
-},{"cordova/init":"cordova/init"}],"cordova-plugin-file-transfer.FileTransferError":[function(require,module,exports){
+},{"cordova/init":"cordova/init"}],"cordova-plugin-dialogs.notification":[function(require,module,exports){
+/*
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ *
+*/
+
+var exec = require('cordova/exec');
+var platform = require('cordova/platform');
+
+/**
+ * Provides access to notifications on the device.
+ */
+
+module.exports = {
+
+    /**
+     * Open a native alert dialog, with a customizable title and button text.
+     *
+     * @param {String} message              Message to print in the body of the alert
+     * @param {Function} completeCallback   The callback that is called when user clicks on a button.
+     * @param {String} title                Title of the alert dialog (default: Alert)
+     * @param {String} buttonLabel          Label of the close button (default: OK)
+     */
+    alert: function (message, completeCallback, title, buttonLabel) {
+        var _message = (typeof message === 'string' ? message : JSON.stringify(message));
+        var _title = (typeof title === 'string' ? title : 'Alert');
+        var _buttonLabel = (buttonLabel && typeof buttonLabel === 'string' ? buttonLabel : 'OK');
+        exec(completeCallback, null, 'Notification', 'alert', [_message, _title, _buttonLabel]);
+    },
+
+    /**
+     * Open a native confirm dialog, with a customizable title and button text.
+     * The result that the user selects is returned to the result callback.
+     *
+     * @param {String} message              Message to print in the body of the alert
+     * @param {Function} resultCallback     The callback that is called when user clicks on a button.
+     * @param {String} title                Title of the alert dialog (default: Confirm)
+     * @param {Array} buttonLabels          Array of the labels of the buttons (default: ['OK', 'Cancel'])
+     */
+    confirm: function (message, resultCallback, title, buttonLabels) {
+        var _message = (typeof message === 'string' ? message : JSON.stringify(message));
+        var _title = (typeof title === 'string' ? title : 'Confirm');
+        var _buttonLabels = (buttonLabels || ['OK', 'Cancel']);
+
+        // Strings are deprecated!
+        if (typeof _buttonLabels === 'string') {
+            console.log('Notification.confirm(string, function, string, string) is deprecated.  Use Notification.confirm(string, function, string, array).');
+        }
+
+        _buttonLabels = convertButtonLabels(_buttonLabels);
+
+        exec(resultCallback, null, 'Notification', 'confirm', [_message, _title, _buttonLabels]);
+    },
+
+    /**
+     * Open a native prompt dialog, with a customizable title and button text.
+     * The following results are returned to the result callback:
+     *  buttonIndex     Index number of the button selected.
+     *  input1          The text entered in the prompt dialog box.
+     *
+     * @param {String} message              Dialog message to display (default: "Prompt message")
+     * @param {Function} resultCallback     The callback that is called when user clicks on a button.
+     * @param {String} title                Title of the dialog (default: "Prompt")
+     * @param {Array} buttonLabels          Array of strings for the button labels (default: ["OK","Cancel"])
+     * @param {String} defaultText          Textbox input value (default: empty string)
+     */
+    prompt: function (message, resultCallback, title, buttonLabels, defaultText) {
+        var _message = (typeof message === 'string' ? message : JSON.stringify(message));
+        var _title = (typeof title === 'string' ? title : 'Prompt');
+        var _buttonLabels = (buttonLabels || ['OK', 'Cancel']);
+
+        // Strings are deprecated!
+        if (typeof _buttonLabels === 'string') {
+            console.log('Notification.prompt(string, function, string, string) is deprecated.  Use Notification.confirm(string, function, string, array).');
+        }
+
+        _buttonLabels = convertButtonLabels(_buttonLabels);
+
+        var _defaultText = (defaultText || '');
+        exec(resultCallback, null, 'Notification', 'prompt', [_message, _title, _buttonLabels, _defaultText]);
+    },
+
+    /**
+     * Causes the device to beep.
+     * On Android, the default notification ringtone is played "count" times.
+     *
+     * @param {Integer} count       The number of beeps.
+     */
+    beep: function (count) {
+        var defaultedCount = count || 1;
+        exec(null, null, 'Notification', 'beep', [ defaultedCount ]);
+    }
+};
+
+function convertButtonLabels (buttonLabels) {
+
+    // Some platforms take an array of button label names.
+    // Other platforms take a comma separated list.
+    // For compatibility, we convert to the desired type based on the platform.
+    if (platform.id === 'amazon-fireos' || platform.id === 'android' || platform.id === 'ios' ||
+        platform.id === 'windowsphone' || platform.id === 'firefoxos' || platform.id === 'ubuntu' ||
+        platform.id === 'windows8' || platform.id === 'windows') {
+
+        if (typeof buttonLabels === 'string') {
+            buttonLabels = buttonLabels.split(','); // not crazy about changing the var type here
+        }
+    } else {
+        if (Array.isArray(buttonLabels)) {
+            var buttonLabelArray = buttonLabels;
+            buttonLabels = buttonLabelArray.toString();
+        }
+    }
+
+    return buttonLabels;
+}
+
+},{"cordova/exec":"cordova/exec","cordova/platform":"cordova/platform"}],"cordova-plugin-file-transfer.FileTransferError":[function(require,module,exports){
 /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -2296,7 +2428,136 @@ var idbModules={util:{cleanInterface:!1}};!function(){"use strict";var a={test:!
 
 return b+="",d.transaction(function(a){a.executeSql("SELECT * FROM dbVersions where name = ?",[b],function(a,c){0===c.rows.length?a.executeSql("INSERT INTO dbVersions VALUES (?,?)",[b,e||1],function(){g(0)},f):g(c.rows.item(0).version)},f)},f),h},b.prototype.deleteDatabase=function(b){function e(b,c){if(!h){1===arguments.length&&(c=b),g.readyState="done",g.error=c||"DOMError";var d=a.util.createEvent("error");d.debug=arguments,a.util.callback("onerror",g,d),h=!0}}function f(){d.transaction(function(c){c.executeSql("DELETE FROM dbVersions where name = ? ",[b],function(){g.result=void 0;var b=a.util.createEvent("success");b.newVersion=null,b.oldVersion=i,a.util.callback("onsuccess",g,b)},e)},e)}var g=new a.IDBOpenDBRequest,h=!1,i=null;if(0===arguments.length)throw new TypeError("Database name is required");return b+="",d.transaction(function(d){d.executeSql("SELECT * FROM dbVersions where name = ?",[b],function(d,h){if(0===h.rows.length){g.result=void 0;var j=a.util.createEvent("success");return j.newVersion=null,j.oldVersion=i,void a.util.callback("onsuccess",g,j)}i=h.rows.item(0).version;var k=window.openDatabase(b,1,b,c);k.transaction(function(b){b.executeSql("SELECT * FROM __sys__",[],function(b,c){var d=c.rows;!function g(c){c>=d.length?b.executeSql("DROP TABLE __sys__",[],function(){f()},e):b.executeSql("DROP TABLE "+a.util.quote(d.item(c).name),[],function(){g(c+1)},function(){g(c+1)})}(0)},function(a){f()})},e)})},e),g},b.prototype.cmp=function(b,c){if(arguments.length<2)throw new TypeError("You must provide two keys to be compared");a.Key.validate(b),a.Key.validate(c);var d=a.Key.encode(b),e=a.Key.encode(c),f=d>e?1:d===e?0:-1;if(a.DEBUG){var g=a.Key.decode(d),h=a.Key.decode(e);"object"==typeof b&&(b=JSON.stringify(b),g=JSON.stringify(g)),"object"==typeof c&&(c=JSON.stringify(c),h=JSON.stringify(h)),g!==b&&console.warn(b+" was incorrectly encoded as "+g),h!==c&&console.warn(c+" was incorrectly encoded as "+h)}return f},a.shimIndexedDB=new b,a.IDBFactory=b}}(idbModules),function(a,b){"use strict";function c(b,c){try{a[b]=c}catch(d){}if(a[b]!==c&&Object.defineProperty){try{Object.defineProperty(a,b,{value:c})}catch(d){}a[b]!==c&&a.console&&console.warn&&console.warn("Unable to shim "+b)}}"undefined"!=typeof a.openDatabase&&(c("shimIndexedDB",b.shimIndexedDB),a.shimIndexedDB&&(a.shimIndexedDB.__useShim=function(){c("indexedDB",b.shimIndexedDB),c("IDBFactory",b.IDBFactory),c("IDBDatabase",b.IDBDatabase),c("IDBObjectStore",b.IDBObjectStore),c("IDBIndex",b.IDBIndex),c("IDBTransaction",b.IDBTransaction),c("IDBCursor",b.IDBCursor),c("IDBKeyRange",b.IDBKeyRange),c("IDBRequest",b.IDBRequest),c("IDBOpenDBRequest",b.IDBOpenDBRequest),c("IDBVersionChangeEvent",b.IDBVersionChangeEvent)},a.shimIndexedDB.__debug=function(a){b.DEBUG=a})),"indexedDB"in a||(a.indexedDB=a.indexedDB||a.webkitIndexedDB||a.mozIndexedDB||a.oIndexedDB||a.msIndexedDB);var d=!1;if((navigator.userAgent.match(/Android 2/)||navigator.userAgent.match(/Android 3/)||navigator.userAgent.match(/Android 4\.[0-3]/))&&(navigator.userAgent.match(/Chrome/)||(d=!0)),"undefined"!=typeof a.indexedDB&&a.indexedDB&&!d||"undefined"==typeof a.openDatabase){a.IDBDatabase=a.IDBDatabase||a.webkitIDBDatabase,a.IDBTransaction=a.IDBTransaction||a.webkitIDBTransaction,a.IDBCursor=a.IDBCursor||a.webkitIDBCursor,a.IDBKeyRange=a.IDBKeyRange||a.webkitIDBKeyRange,a.IDBTransaction||(a.IDBTransaction={});try{a.IDBTransaction.READ_ONLY=a.IDBTransaction.READ_ONLY||"readonly",a.IDBTransaction.READ_WRITE=a.IDBTransaction.READ_WRITE||"readwrite"}catch(e){}}else a.shimIndexedDB.__useShim()}(window,idbModules);
 
-},{}],"cordova/argscheck":[function(require,module,exports){
+},{}],"cordova-plugin-network-information.Connection":[function(require,module,exports){
+/*
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ *
+*/
+
+/**
+ * Network status
+ */
+module.exports = {
+    UNKNOWN: 'unknown',
+    ETHERNET: 'ethernet',
+    WIFI: 'wifi',
+    CELL_2G: '2g',
+    CELL_3G: '3g',
+    CELL_4G: '4g',
+    CELL: 'cellular',
+    NONE: 'none'
+};
+
+},{}],"cordova-plugin-network-information.network":[function(require,module,exports){
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ *
+*/
+
+var exec = require('cordova/exec');
+var cordova = require('cordova');
+var channel = require('cordova/channel');
+var utils = require('cordova/utils');
+
+// Link the onLine property with the Cordova-supplied network info.
+// This works because we clobber the navigator object with our own
+// object in bootstrap.js.
+// Browser platform do not need to define this property, because
+// it is already supported by modern browsers
+if (cordova.platformId !== 'browser' && typeof navigator !== 'undefined') {
+    utils.defineGetter(navigator, 'onLine', function () {
+        return this.connection.type !== 'none';
+    });
+}
+
+function NetworkConnection () {
+    this.type = 'unknown';
+}
+
+/**
+ * Get connection info
+ *
+ * @param {Function} successCallback The function to call when the Connection data is available
+ * @param {Function} errorCallback The function to call when there is an error getting the Connection data. (OPTIONAL)
+ */
+NetworkConnection.prototype.getInfo = function (successCallback, errorCallback) {
+    exec(successCallback, errorCallback, 'NetworkStatus', 'getConnectionInfo', []);
+};
+
+var me = new NetworkConnection();
+var timerId = null;
+var timeout = 500;
+
+channel.createSticky('onCordovaConnectionReady');
+channel.waitForInitialization('onCordovaConnectionReady');
+
+channel.onCordovaReady.subscribe(function () {
+    me.getInfo(function (info) {
+        me.type = info;
+        if (info === 'none') {
+            // set a timer if still offline at the end of timer send the offline event
+            timerId = setTimeout(function () {
+                cordova.fireDocumentEvent('offline');
+                timerId = null;
+            }, timeout);
+        } else {
+            // If there is a current offline event pending clear it
+            if (timerId !== null) {
+                clearTimeout(timerId);
+                timerId = null;
+            }
+            cordova.fireDocumentEvent('online');
+        }
+
+        // should only fire this once
+        if (channel.onCordovaConnectionReady.state !== 2) {
+            channel.onCordovaConnectionReady.fire();
+        }
+    },
+    function (e) {
+        // If we can't get the network info we should still tell Cordova
+        // to fire the deviceready event.
+        if (channel.onCordovaConnectionReady.state !== 2) {
+            channel.onCordovaConnectionReady.fire();
+        }
+        console.log('Error initializing Network Connection: ' + e);
+    });
+});
+
+module.exports = me;
+
+},{"cordova":"cordova","cordova/channel":"cordova/channel","cordova/exec":"cordova/exec","cordova/utils":"cordova/utils"}],"cordova/argscheck":[function(require,module,exports){
 /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -4043,6 +4304,34 @@ module.exports = [
     "runs": true
   },
   {
+    "file": "www/notification.js",
+    "id": "cordova-plugin-dialogs.notification",
+    "name": "notification",
+    "pluginId": "cordova-plugin-dialogs",
+    "merges": [
+      "navigator.notification"
+    ]
+  },
+  {
+    "file": "www/network.js",
+    "id": "cordova-plugin-network-information.network",
+    "name": "network",
+    "pluginId": "cordova-plugin-network-information",
+    "clobbers": [
+      "navigator.connection",
+      "navigator.network.connection"
+    ]
+  },
+  {
+    "file": "www/Connection.js",
+    "id": "cordova-plugin-network-information.Connection",
+    "name": "Connection",
+    "pluginId": "cordova-plugin-network-information",
+    "clobbers": [
+      "Connection"
+    ]
+  },
+  {
     "file": "www/DirectoryEntry.js",
     "id": "cordova-plugin-file.DirectoryEntry",
     "name": "DirectoryEntry",
@@ -4242,6 +4531,8 @@ module.exports.metadata = {
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-file-transfer": "1.7.0",
   "cordova-plugin-indexedDB": "0.1.4",
+  "cordova-plugin-dialogs": "2.0.1",
+  "cordova-plugin-network-information": "2.0.1",
   "cordova-plugin-file": "5.0.0"
 };
 
