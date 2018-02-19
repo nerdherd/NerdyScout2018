@@ -2,7 +2,7 @@
 
 FRC Team 687's scouting app for the 2018 game, Power Up. 
 
-![Screenshot](https://github.com/nerdherd/NerdyScout2018/screenshot.png "Screenshot")
+![Screenshot](https://github.com/nerdherd/NerdyScout2018/blob/master/screenshot.png "Screenshot")
 
 
 #### For development:
