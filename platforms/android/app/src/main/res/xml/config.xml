@@ -18,13 +18,14 @@
     <feature name="NetworkStatus">
         <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
     </feature>
-    <name>HelloCordova</name>
+    <name>NerdyScout</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Nerdherd2018.
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
+    <icon density="mdpi" platform="android" src="res/icon/android/nhface.png" />
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />
