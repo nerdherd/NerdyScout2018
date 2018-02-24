@@ -6,7 +6,6 @@
      }
       $name = $_POST['name'];
       $matchnum = $_POST['matchnum'];
-      $alliance = $_POST['allliance'];
       $teamnum = $_POST['teamnum'];
       $score = $_POST['score'];
       $rp = $_POST['rp'];
@@ -29,11 +28,12 @@
       $teleblue = $_POST['teleblue'];
       $televault = $_POST['televault'];
       $telescale = $_POST['telescale'];
-      $result = mysqli_query($con, "DESCRIBE entries");
+      $alliance = $_POST['alliance'];
+      $result = mysqli_query($con, "DESCRIBE matchScouting");
       while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
         echo "{$row['Field']} - {$row['Type']}";
       }
-      $q = mysqli_query($con, "INSERT INTO matchScouting (name,matchnum,teamnum,score,rp,cards,autocubesource,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telelevitatetimes,telelevitatecubes,telered,teleblue,televault,telescale) VALUES ('$name','$matchnum','$alliance','$teamnum','$score','$rp','$cards','$autocubesource','$automobility','$autoswitch', '$autoscale','$telecubesource','$teledied','$teleclimb','$teledefense','$teleforcetimes','$teleforcecube','$teleboosttimes','$teleboostcube','$telelevitatetimes','$telelevitatecube','$telered','$teleblue','$televault','$telescale')");
+      $q = mysqli_query($con, "INSERT INTO matchScouting (name,matchnum,teamnum,score,rp,cards,autocubesource,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telelevitatetimes,telelevitatecubes,telered,teleblue,televault,telescale,alliance) VALUES ('$name','$matchnum','$alliance','$teamnum','$score','$rp','$cards','$autocubesource','$automobility','$autoswitch', '$autoscale','$telecubesource','$teledied','$teleclimb','$teledefense','$teleforcetimes','$teleforcecube','$teleboosttimes','$teleboostcube','$telelevitatetimes','$telelevitatecube','$telered','$teleblue','$televault','$telescale','$alliance')");
       if($q) {
         echo "Records inserted successfully.";
       }

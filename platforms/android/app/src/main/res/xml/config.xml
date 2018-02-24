@@ -25,7 +25,8 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
-    <icon density="mdpi" platform="android" src="res/icon/android/nhface.png" />
+    <icon density="mdpi" platform="android" src="res/icon/android/frclogo.png" />
+    <icon density="mdpi" platform="ios" src="res/icon/android/frclogo.png" />
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="*" />

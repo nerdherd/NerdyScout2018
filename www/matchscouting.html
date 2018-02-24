@@ -24,7 +24,7 @@
       <script type="text/javascript">
       $(document).ready(function() {
           $("#submit").click(function() {
-               var team,color,auto,defense,scale,climb,speed,score,cards;
+               var name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
                //no wifi connection, save as local storage
                name=$("#name").val();
                matchnum=$("#matchnum").val();
@@ -52,12 +52,12 @@
                televault=$("#televault").val();
                telescale=$("#telescale").val();
 
-              var dataString = "team=" + team + "&color=" + color + "&auto=" + auto + "&defense="+defense+"&scale="+scale+"&climb="+climb+"&speed="+speed+"&score="+score+"&cards="+cards;
+              var dataString = "name=" + name + "&matchnum=" + matchnum + "&alliance=" + alliance +"&teamnum="+teamnum+"&score="+score+"&rp="+rp+"&cards="+cards+"&autosubesource="+autocubesource+"&automobility="+automobility+"&autoswitch="+autoswitch+"&autoscale="+autoscale+"&telecubesource="+telecubesource+"&teledied="+teledied+"&teleclimb="+teleclimb+"&teledefense="+teledefense+"&teleforcetimes="+teleforcetimes+"&teleforcecube="+teleforcecube+"&teleboosttimes="+teleboosttimes+"&teleboostcube="+teleboostcube+"&telelevitatetimes="+telelevitatetimes+"&telelevitatecube="+telelevitatecube+"&telered="+telered+"&teleblue="+teleblue+"&televault="+televault+"&telescale="+telescale;
                   $.ajax({
                       type: "POST",
                       url: "https://nerdyscout2018.000webhostapp.com/main.php",
                       // data: dataString,
-                      data:{team:team,color:color,auto:auto,defense:defense,scale:scale,climb:climb,speed:speed,score:score,cards:cards},
+                      data:{name:name,matchnum:matchnum,alliance:alliance,teamnum:teamnum,score:score,rp:rp,cards:cards,autocubesource:autocubesource,automobility:automobility,autoswitch:autoswitch,autoscale:autoscale,telecubesource:telecubesource,teledied:teledied,teleclimb:teleclimb,teledefense:teledefense,teleforcetimes:teleforcetimes,teleforcecube:teleforcecube,teleboosttimes:teleboosttimes,teleboostcube:teleboostcube,telelevitatetimes:telelevitatetimes,telelevitatecube:telelevitatecube,telered:telered,teleblue:teleblue,televault:televault,telescale:telescale},
                       // crossDomain: true,
                       // cache: false,
                       beforeSend: function() {

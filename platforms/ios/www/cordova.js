@@ -4279,6 +4279,15 @@ document.addEventListener("deviceready", logger.__onDeviceReady, false);
 },{"cordova/exec":"cordova/exec"}],"cordova/plugin_list":[function(require,module,exports){
 module.exports = [
   {
+    "file": "www/notification.js",
+    "id": "cordova-plugin-dialogs.notification",
+    "name": "notification",
+    "pluginId": "cordova-plugin-dialogs",
+    "merges": [
+      "navigator.notification"
+    ]
+  },
+  {
     "file": "www/FileTransferError.js",
     "id": "cordova-plugin-file-transfer.FileTransferError",
     "name": "FileTransferError",
@@ -4302,15 +4311,6 @@ module.exports = [
     "name": "IndexedDBShim",
     "pluginId": "cordova-plugin-indexedDB",
     "runs": true
-  },
-  {
-    "file": "www/notification.js",
-    "id": "cordova-plugin-dialogs.notification",
-    "name": "notification",
-    "pluginId": "cordova-plugin-dialogs",
-    "merges": [
-      "navigator.notification"
-    ]
   },
   {
     "file": "www/network.js",
@@ -4528,11 +4528,11 @@ module.exports = [
   }
 ];
 module.exports.metadata = {
-  "cordova-plugin-whitelist": "1.3.3",
+  "cordova-plugin-dialogs": "2.0.1",
   "cordova-plugin-file-transfer": "1.7.0",
   "cordova-plugin-indexedDB": "0.1.4",
-  "cordova-plugin-dialogs": "2.0.1",
   "cordova-plugin-network-information": "2.0.1",
+  "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-file": "5.0.0"
 };
 
