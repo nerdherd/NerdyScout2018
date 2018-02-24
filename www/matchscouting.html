@@ -26,15 +26,32 @@
           $("#submit").click(function() {
                var team,color,auto,defense,scale,climb,speed,score,cards;
                //no wifi connection, save as local storage
-               team=$("#team").val();
-               color=$("#color").val();
-               auto=$("#auto").val();
-               defense=$("#defense").val();
-               scale=$("#scale").val();
-               climb=$("#climb").val();
-               speed=$("#speed").val();
+               name=$("#name").val();
+               matchnum=$("#matchnum").val();
+               alliance=$("#alliance").val();
+               teamnum=$("#teamnum").val();
                score=$("#score").val();
+               rp=$("#rp").val();
                cards=$("#cards").val();
+               autocubesource=$("#autocubesource").val();
+               automobility=$("#automobility").val();
+               autoswitch=$("#autoswitch").val();
+               autoscale=$("#autoscale").val();
+               telecubesource=$("#telecubesource").val();
+               teledied=$("#teledied").val();
+               teleclimb=$("#teleclimb").val();
+               teledefense=$("#teledefense").val();
+               teleforcetimes=$("#teleforcetimes").val();
+               teleforcecube=$("#teleforcecube").val();
+               teleboosttimes=$("#teleboosttimes").val();
+               teleboostcube=$("#teleboostcube").val();
+               telelevitatetimes=$("#telelevitatetimes").val();
+               telelevitatecube=$("#telelevitatecube").val();
+               telered=$("#telered").val();
+               teleblue=$("#teleblue").val();
+               televault=$("#televault").val();
+               telescale=$("#telescale").val();
+
               var dataString = "team=" + team + "&color=" + color + "&auto=" + auto + "&defense="+defense+"&scale="+scale+"&climb="+climb+"&speed="+speed+"&score="+score+"&cards="+cards;
                   $.ajax({
                       type: "POST",

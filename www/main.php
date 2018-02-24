@@ -26,17 +26,15 @@
       $telelevitatetimes = $_POST['telelevitatetimes'];
       $telelevitatecube = $_POST['telelevitatecube'];
       $telered = $_POST['telered'];
-      $telescale = $_POST['telescale'];
       $teleblue = $_POST['teleblue'];
       $televault = $_POST['televault'];
+      $telescale = $_POST['telescale'];
       $result = mysqli_query($con, "DESCRIBE entries");
       while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
         echo "{$row['Field']} - {$row['Type']}";
       }
       $q = mysqli_query($con, "INSERT INTO matchScouting (name,matchnum,teamnum,score,rp,cards,autocubesource,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telelevitatetimes,telelevitatecubes,telered,teleblue,televault,telescale) VALUES ('$name','$matchnum','$alliance','$teamnum','$score','$rp','$cards','$autocubesource','$automobility','$autoswitch', '$autoscale','$telecubesource','$teledied','$teleclimb','$teledefense','$teleforcetimes','$teleforcecube','$teleboosttimes','$teleboostcube','$telelevitatetimes','$telelevitatecube','$telered','$teleblue','$televault','$telescale')");
       if($q) {
-        ....................................................
-
         echo "Records inserted successfully.";
       }
       else {
