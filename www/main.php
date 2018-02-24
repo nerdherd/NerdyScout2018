@@ -33,7 +33,8 @@
       while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
         echo "{$row['Field']} - {$row['Type']}";
       }
-      $q = mysqli_query($con, "INSERT INTO matchScouting (name,matchnum,teamnum,score,rp,cards,autocubesource,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telelevitatetimes,telelevitatecubes,telered,teleblue,televault,telescale,alliance) VALUES ('$name','$matchnum','$alliance','$teamnum','$score','$rp','$cards','$autocubesource','$automobility','$autoswitch', '$autoscale','$telecubesource','$teledied','$teleclimb','$teledefense','$teleforcetimes','$teleforcecube','$teleboosttimes','$teleboostcube','$telelevitatetimes','$telelevitatecube','$telered','$teleblue','$televault','$telescale','$alliance')");
+      $q = mysqli_query($con, "INSERT INTO matchScouting (name,matchnum,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telelevitatetimes,telelevitatecubes,telered,teleblue,televault,telescale,alliance) VALUES ('$name','$matchnum','$teamnum','$score','$rp','$cards','$autocubesource','$automobility','$autoswitch','$autoscale', '$telecubesource','$teledied','$teleclimb','$teledefense','$teleforcetimes','$teleforcecube','$teleboosttimes','$teleboostcube','$telelevitatetimes','$telelevitatecube','$telered','$teleblue','$televault','$telescale','$alliance')");
+
       if($q) {
         echo "Records inserted successfully.";
       }
