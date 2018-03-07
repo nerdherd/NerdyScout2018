@@ -24,7 +24,7 @@
       <script type="text/javascript">
       $(document).ready(function() {
           $("#submit").click(function() {
-               var name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
+               var telelevitatetimes, telelevitatecube, name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
                //no wifi connection, save as local storage
                name=$("#name").val();
                matchnum=$("#matchnum").val();
@@ -71,8 +71,9 @@
                           // } else if (data == "error") {
                           //     alert("error");
                           // }
-                          $("#submit").val('Submit');
-                          alert(data);
+//                           $("#submit").val('Submit');
+                          Materialize.toast("Successful match scout profile sent!", 4000);
+                          document.getElementById("form").reset();
                       }
                   });
               return false;
