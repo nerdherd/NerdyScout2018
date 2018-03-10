@@ -24,28 +24,46 @@
       <script type="text/javascript">
       $(document).ready(function() {
           $("#submit").click(function() {
-               var team,color,auto,defense,scale,climb,speed,score,cards;
+               var telelevitatetimes, telelevitatecube, name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
                //no wifi connection, save as local storage
-               team=$("#team").val();
-               color=$("#color").val();
-               auto=$("#auto").val();
-               defense=$("#defense").val();
-               scale=$("#scale").val();
-               climb=$("#climb").val();
-               speed=$("#speed").val();
+               name=$("#name").val();
+               matchnum=$("#matchnum").val();
+               alliance=$("#alliance").val();
+               teamnum=$("#teamnum").val();
                score=$("#score").val();
+               rp=$("#rp").val();
                cards=$("#cards").val();
-              var dataString = "team=" + team + "&color=" + color + "&auto=" + auto + "&defense="+defense+"&scale="+scale+"&climb="+climb+"&speed="+speed+"&score="+score+"&cards="+cards;
+               autocubesource=$("#autocubesource").val();
+               automobility=$("#automobility").val();
+               autoswitch=$("#autoswitch").val();
+               autoscale=$("#autoscale").val();
+               telecubesource=$("#telecubesource").val();
+               teledied=$("#teledied").val();
+               teleclimb=$("#teleclimb").val();
+               teledefense=$("#teledefense").val();
+               teleforcetimes=$("#teleforcetimes").val();
+               teleforcecube=$("#teleforcecube").val();
+               teleboosttimes=$("#teleboosttimes").val();
+               teleboostcube=$("#teleboostcube").val();
+               telelevitatetimes=$("#telelevitatetimes").val();
+               telelevitatecube=$("#telelevitatecube").val();
+               telered=$("#telered").val();
+               teleblue=$("#teleblue").val();
+               televault=$("#televault").val();
+               telescale=$("#telescale").val();
+
+              var dataString = "name=" + name + "&matchnum=" + matchnum + "&alliance=" + alliance +"&teamnum="+teamnum+"&score="+score+"&rp="+rp+"&cards="+cards+"&autosubesource="+autocubesource+"&automobility="+automobility+"&autoswitch="+autoswitch+"&autoscale="+autoscale+"&telecubesource="+telecubesource+"&teledied="+teledied+"&teleclimb="+teleclimb+"&teledefense="+teledefense+"&teleforcetimes="+teleforcetimes+"&teleforcecube="+teleforcecube+"&teleboosttimes="+teleboosttimes+"&teleboostcube="+teleboostcube+"&telelevitatetimes="+telelevitatetimes+"&telelevitatecube="+telelevitatecube+"&telered="+telered+"&teleblue="+teleblue+"&televault="+televault+"&telescale="+telescale;
                   $.ajax({
                       type: "POST",
                       url: "https://nerdyscout2018.000webhostapp.com/main.php",
-                      // data: dataString,
-                      data:{team:team,color:color,auto:auto,defense:defense,scale:scale,climb:climb,speed:speed,score:score,cards:cards},
+                      data: dataString,
+//                       data:{name:name,matchnum:matchnum,alliance:alliance,teamnum:teamnum,score:score,rp:rp,cards:cards,autocubesource:autocubesource,automobility:automobility,autoswitch:autoswitch,autoscale:autoscale,telecubesource:telecubesource,teledied:teledied,teleclimb:teleclimb,teledefense:teledefense,teleforcetimes:teleforcetimes,teleforcecube:teleforcecube,teleboosttimes:teleboosttimes,teleboostcube:teleboostcube,telelevitatetimes:telelevitatetimes,telelevitatecube:telelevitatecube,telered:telered,teleblue:teleblue,televault:televault,telescale:telescale},
                       // crossDomain: true,
                       // cache: false,
                       beforeSend: function() {
-                          $("#submit").val('Connecting...');
-                          alert("about to send!");
+                          //$("#submit").val('Connecting...');
+                          //alert("about to send!");
+                         Materialize.toast("Sending",1000);
                       },
                       success: function(data) {
                           // if (data == "success") {
@@ -54,8 +72,9 @@
                           // } else if (data == "error") {
                           //     alert("error");
                           // }
-                          $("#submit").val('Submit');
-                          alert(data);
+//                           $("#submit").val('Submit');
+                          Materialize.toast("Successful match scout profile sent!", 4000);
+                          document.getElementById("form").reset();
                       }
                   });
               return false;
@@ -71,7 +90,7 @@
             <a class="home" href="matchscouting.html">Match Scouting</a>                 <!-- <center><img src="img/frclogo.png" id="logo" class="center-align"></center> -->
          </nav>
       </div>
-      <h1>Match Scouting</h1>
+      <h3 class="center-align">Match Scouting</h3>
       <div class = "valign-wrapper">
          <div class="valign center-block">
             <!-- <h1 class = "center-align">NerdyScout2018</h1> -->
@@ -88,40 +107,82 @@
             continue to use this method -->
          <div class="container">
             <form id="form">
-               Team Number:<br>
-               <input type="text" class = "validate" id="team" value="">
+               Name:<br>
+               <input type="text" class = "validate" id="name" value="">
                <br>
-               Alliance Color:<br>
-               <input type="text" class = "validate" id="color" value="">
+               Match #:<br>
+               <input type="text" class = "validate" id="matchnum" value="">
                <br>
-               Auto Rating:<br>
-               <input type="text" class = "validate" id="auto" value="">
+               Alliance:<br>
+               <input type="text" class = "validate" id="alliance" value="">
                <br>
-               Defense Rating:<br>
-               <input type="text" class = "validate" id="defense" value="">
+               Team #:<br>
+               <input type="text" class = "validate" id="teamnum" value="">
                <br>
-               Did Robot Scale?:<br>
-               <input type="text" class = "validate" id="scale" value="">
-               <br>
-               Did Robot Climb?:<br>
-               <input type="text" class = "validate" id="climb" value="">
-               <br>
-               Speed Rating:<br>
-               <input type="text" class = "validate" id="speed" value="">
-               <br>
-               End Game Score:<br>
+               Match Score:<br>
                <input type="text" class = "validate" id="score" value="">
                <br>
-               Any Yellow/Red Cards?:<br>
+               Ranking Points:<br>
+               <input type="text" class = "validate" id="rp" value="">
+               <br>
+               Yellow/Red Cards:<br>
                <input type="text" class = "validate" id="cards" value="">
                <br>
-               Win or Lose:<br>
-               <input type="text" class = "validate" id="winlose" value="">
+               Auto Source of Cube(Pre-Loaded or Cube-Zone):<br>
+               <input type="text" class = "validate" id="autocubesource" value="">
                <br>
-               Additional Notes?:<br>
-               <input type="text" class = "validate" id="notes" value="">
+               Auto Mobility(Did NOT Move, Crossed Line):<br>
+               <input type="text" class = "validate" id="automobility" value="">
                <br>
-               <input type="submit" class = "btn blue" id="submit" value="Submit"/>
+               Auto Switch(Hit or Miss):<br>
+               <input type="text" class = "validate" id="autoswitch" value="">
+               <br>
+               Auto Scale(Hit or Miss):<br>
+               <input type="text" class = "validate" id="autoscale" value="">
+               <br>
+               Teleop Source of Cube(Pre-Loaded, Portal, Floor, Cube Zone, Exchange Zone):<br>
+               <input type="text" class = "validate" id="telecubesource" value="">
+               <br>
+               Teleop Died(Yes or No):<br>
+               <input type="text" class = "validate" id="teledied" value="">
+               <br>
+               Teleop Climb(Success, Attempted, No Attempt, Levitate):<br>
+               <input type="text" class = "validate" id="teleclimb" value="">
+               <br>
+               Teleop Defense Played(Yes or No):<br>
+               <input type="text" class = "validate" id="teledefense" value="">
+               <br>
+               Teleop Force(# of times played):<br>
+               <input type="text" class = "validate" id="teleforcetimes" value="">
+               <br>
+               Teleop Force(# of cubes played):<br>
+               <input type="text" class = "validate" id="teleforcecube" value="">
+               <br>
+               Teleop Boost(# of times played):<br>
+               <input type="text" class = "validate" id="teleboosttimes" value="">
+               <br>
+               Teleop Boost(# of cubes played):<br>
+               <input type="text" class = "validate" id="teleboostcube" value="">
+               <br>
+               Teleop Levitate(# of times played):<br>
+               <input type="text" class = "validate" id="telelevitatetimes" value="">
+               <br>
+               Teleop Levitate(# of cubes played):<br>
+               <input type="text" class = "validate" id="telelevitatecube" value="">
+               <br>
+               Teleop Red Switch(Hit or Miss):<br>
+               <input type="text" class = "validate" id="telered" value="">
+               <br>
+               Teleop Blue Switch(Hit or Miss):<br>
+               <input type="text" class = "validate" id="teleblue" value="">
+               <br>
+               Teleop Vault(Hit or Miss):<br>
+               <input type="text" class = "validate" id="televault" value="">
+               <br>
+               Teleop Scale(Hit or Miss):<br>
+               <input type="text" class = "validate" id="telescale" value="">
+               <br>
+               <button type="submit" class = "btn blue" id="submit" value="Submit"/>Submit</button>
             </form>
          </div>
       </div>

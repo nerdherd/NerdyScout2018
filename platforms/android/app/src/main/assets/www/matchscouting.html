@@ -24,7 +24,7 @@
       <script type="text/javascript">
       $(document).ready(function() {
           $("#submit").click(function() {
-               var name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
+               var telelevitatetimes, telelevitatecube, name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
                //no wifi connection, save as local storage
                name=$("#name").val();
                matchnum=$("#matchnum").val();
@@ -56,13 +56,14 @@
                   $.ajax({
                       type: "POST",
                       url: "https://nerdyscout2018.000webhostapp.com/main.php",
-                      // data: dataString,
-                      data:{name:name,matchnum:matchnum,alliance:alliance,teamnum:teamnum,score:score,rp:rp,cards:cards,autocubesource:autocubesource,automobility:automobility,autoswitch:autoswitch,autoscale:autoscale,telecubesource:telecubesource,teledied:teledied,teleclimb:teleclimb,teledefense:teledefense,teleforcetimes:teleforcetimes,teleforcecube:teleforcecube,teleboosttimes:teleboosttimes,teleboostcube:teleboostcube,telelevitatetimes:telelevitatetimes,telelevitatecube:telelevitatecube,telered:telered,teleblue:teleblue,televault:televault,telescale:telescale},
+                      data: dataString,
+//                       data:{name:name,matchnum:matchnum,alliance:alliance,teamnum:teamnum,score:score,rp:rp,cards:cards,autocubesource:autocubesource,automobility:automobility,autoswitch:autoswitch,autoscale:autoscale,telecubesource:telecubesource,teledied:teledied,teleclimb:teleclimb,teledefense:teledefense,teleforcetimes:teleforcetimes,teleforcecube:teleforcecube,teleboosttimes:teleboosttimes,teleboostcube:teleboostcube,telelevitatetimes:telelevitatetimes,telelevitatecube:telelevitatecube,telered:telered,teleblue:teleblue,televault:televault,telescale:telescale},
                       // crossDomain: true,
                       // cache: false,
                       beforeSend: function() {
-                          $("#submit").val('Connecting...');
-                          alert("about to send!");
+                          //$("#submit").val('Connecting...');
+                          //alert("about to send!");
+                         Materialize.toast("Sending",1000);
                       },
                       success: function(data) {
                           // if (data == "success") {
@@ -71,8 +72,9 @@
                           // } else if (data == "error") {
                           //     alert("error");
                           // }
-                          $("#submit").val('Submit');
-                          alert(data);
+//                           $("#submit").val('Submit');
+                          Materialize.toast("Successful match scout profile sent!", 4000);
+                          document.getElementById("form").reset();
                       }
                   });
               return false;
@@ -180,7 +182,7 @@
                Teleop Scale(Hit or Miss):<br>
                <input type="text" class = "validate" id="telescale" value="">
                <br>
-               <input type="submit" class = "btn blue" id="submit" value="Submit"/>
+               <button type="submit" class = "btn blue" id="submit" value="Submit"/>Submit</button>
             </form>
          </div>
       </div>

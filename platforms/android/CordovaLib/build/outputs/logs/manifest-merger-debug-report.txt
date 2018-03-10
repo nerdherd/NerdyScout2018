@@ -15,8 +15,10 @@ INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\Androi
 		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:21:36-61
 		INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml
 		INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml
+	android:debuggable
+		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:11-37
 	xmlns:android
-		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:11-69
+		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:38-96
 	android:versionCode
 		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:21:62-85
 		INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml

@@ -202,4 +202,3 @@ ext {
     // Returns the value for the desired <preference>. Added in 4.1.0.
     cdvHelpers.getConfigPreference = { name, defaultValue -> doGetConfigPreference(name, defaultValue) }
 }
-

@@ -4,20 +4,37 @@
      if(!$con){
        die('Error:'.mysqli_connect_error());
      }
-      $team = $_POST['team'];
-      $color = $_POST['color'];
-      $auto = $_POST['auto'];
-      $defense = $_POST['defense'];
-      $scale = $_POST['scale'];
-      $climb = $_POST['climb'];
-      $speed = $_POST['speed'];
+      $name = $_POST['name'];
+      $matchnum = $_POST['matchnum'];
+      $teamnum = $_POST['teamnum'];
       $score = $_POST['score'];
+      $rp = $_POST['rp'];
       $cards = $_POST['cards'];
-      $result = mysqli_query($con, "DESCRIBE entries");
+      $autocubesource = $_POST['autocubesource'];
+      $automobility = $_POST['automobility'];
+      $autoswitch = $_POST['autoswitch'];
+      $autoscale = $_POST['autoscale'];
+      $telecubesource = $_POST['telecubesource'];
+      $teledied = $_POST['teledied'];
+      $teleclimb = $_POST['teleclimb'];
+      $teledefense = $_POST['teledefense'];
+      $teleforcetimes = $_POST['teleforcetimes'];
+      $teleforcecube = $_POST['teleforcecube'];
+      $teleboosttimes = $_POST['teleboosttimes'];
+      $teleboostcube = $_POST['teleboostcube'];
+      $telelevitatetimes = $_POST['telelevitatetimes'];
+      $telelevitatecube = $_POST['telelevitatecube'];
+      $telered = $_POST['telered'];
+      $teleblue = $_POST['teleblue'];
+      $televault = $_POST['televault'];
+      $telescale = $_POST['telescale'];
+      $alliance = $_POST['alliance'];
+      $result = mysqli_query($con, "DESCRIBE matchScouting");
       while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
         echo "{$row['Field']} - {$row['Type']}";
       }
-      $q = mysqli_query($con, "INSERT INTO entries (teamNumber,color,autoRating,defRating,scale,climb,speed,endScore,cards) VALUES ('$team','$color','$auto','$defense','$scale','$climb','$speed','$score','$cards')");
+      $q = mysqli_query($con, "INSERT INTO matchScouting (name,matchnum,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telelevitatetimes,telelevitatecubes,telered,teleblue,televault,telescale,alliance) VALUES ('$name','$matchnum','$teamnum','$score','$rp','$cards','$autocubesource','$automobility','$autoswitch','$autoscale', '$telecubesource','$teledied','$teleclimb','$teledefense','$teleforcetimes','$teleforcecube','$teleboosttimes','$teleboostcube','$telelevitatetimes','$telelevitatecube','$telered','$teleblue','$televault','$telescale','$alliance')");
+
       if($q) {
         echo "Records inserted successfully.";
       }

@@ -4,7 +4,7 @@ ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\Android
 INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-15:12
 INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-15:12
 INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-15:12
-MERGED from [:CordovaLib] C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-29:12
+MERGED from [:CordovaLib] C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-30:12
 INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-15:12
 INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-15:12
 INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:2:1-15:12
@@ -76,8 +76,8 @@ ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\Android
 		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:8:27-74
 uses-sdk
 ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:12:5-74
-MERGED from [:CordovaLib] C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
-MERGED from [:CordovaLib] C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:26:5-44
+MERGED from [:CordovaLib] C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:26:5-44
 	android:targetSdkVersion
 		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:12:42-71
 	android:minSdkVersion
@@ -91,6 +91,6 @@ ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\Android
 	android:name
 		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\app\src\main\AndroidManifest.xml:14:22-76
 uses-permission#android.permission.INTERNET
-ADDED from [:CordovaLib] C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:27:5-67
+ADDED from [:CordovaLib] C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:28:5-67
 	android:name
-		ADDED from [:CordovaLib] C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:27:22-64
+		ADDED from [:CordovaLib] C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:28:22-64
