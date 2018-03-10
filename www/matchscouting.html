@@ -56,13 +56,14 @@
                   $.ajax({
                       type: "POST",
                       url: "https://nerdyscout2018.000webhostapp.com/main.php",
-                      // data: dataString,
-                      data:{name:name,matchnum:matchnum,alliance:alliance,teamnum:teamnum,score:score,rp:rp,cards:cards,autocubesource:autocubesource,automobility:automobility,autoswitch:autoswitch,autoscale:autoscale,telecubesource:telecubesource,teledied:teledied,teleclimb:teleclimb,teledefense:teledefense,teleforcetimes:teleforcetimes,teleforcecube:teleforcecube,teleboosttimes:teleboosttimes,teleboostcube:teleboostcube,telelevitatetimes:telelevitatetimes,telelevitatecube:telelevitatecube,telered:telered,teleblue:teleblue,televault:televault,telescale:telescale},
+                      data: dataString,
+//                       data:{name:name,matchnum:matchnum,alliance:alliance,teamnum:teamnum,score:score,rp:rp,cards:cards,autocubesource:autocubesource,automobility:automobility,autoswitch:autoswitch,autoscale:autoscale,telecubesource:telecubesource,teledied:teledied,teleclimb:teleclimb,teledefense:teledefense,teleforcetimes:teleforcetimes,teleforcecube:teleforcecube,teleboosttimes:teleboosttimes,teleboostcube:teleboostcube,telelevitatetimes:telelevitatetimes,telelevitatecube:telelevitatecube,telered:telered,teleblue:teleblue,televault:televault,telescale:telescale},
                       // crossDomain: true,
                       // cache: false,
                       beforeSend: function() {
-                          $("#submit").val('Connecting...');
-                          alert("about to send!");
+                          //$("#submit").val('Connecting...');
+                          //alert("about to send!");
+                         Materialize.toast("Sending",1000);
                       },
                       success: function(data) {
                           // if (data == "success") {
