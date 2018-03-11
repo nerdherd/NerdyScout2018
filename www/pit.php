@@ -14,11 +14,11 @@
      $pitclimb=$_POST["pitclimb"];
      $pitimage=$_POST["pitimage"];
 
-      $result = mysqli_query($con, "DESCRIBE pitSCouting");
+      $result = mysqli_query($con, "DESCRIBE pitScout");
       while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
         echo "{$row['Field']} - {$row['Type']}";
       }
-      $q = mysqli_query($con, "INSERT INTO pitScouting (pitgroup,pitteam,pitauto,pitautoabilities,pitteleop,pitintake,pitscore,pitclimb, pitimage) VALUES ('pitgroup','pitteam','pitauto','pitautoabilities','pitteleop','pitintake','pitscore','pitclimb','pitimage')");
+      $q = mysqli_query($con, "INSERT INTO pitScout (pitgroup,pitteam,pitauto,pitautoabilities,pitteleop,pitintake,pitscore,pitclimb, pitimage) VALUES ('pitgroup','pitteam','pitauto','pitautoabilities','pitteleop','pitintake','pitscore','pitclimb','pitimage')");
 
       if($q) {
         echo "Records inserted successfully.";
