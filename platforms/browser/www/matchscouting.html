@@ -1,18 +1,6 @@
 <html>
    <head>
-      <!--
-         Customize this policy to fit your own app's needs. For more guidance, see:
-             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-         Some notes:
-             * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-             * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                 * Enable inline JS: add 'unsafe-inline' to default-src
-         -->
-      <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
       <meta id="format-detection" content="telephone=no">
-      <!-- <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;style-src * 'unsafe-inline' 'self' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;img-src * data: 'unsafe-inline' 'self' content:;fmedia-src mediastream;"> -->
-      <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" /> -->
       <meta id="msapplication-tap-highlight" content="no">
       <meta id="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
       <link rel="stylesheet" type="text/css" href="css/matchscouting.css">
@@ -22,67 +10,11 @@
       <script src="js/jquery.min.js" charset="utf-8"></script>
       <script src="js/materialize.min.js" charset="utf-8"></script>
       <script type="text/javascript">
-      $(document).ready(function() {
-        if(!navigator.onLine) {
-          $("#submit").click(function() {
-            var telelevitatetimes, telelevitatecube, name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
-            var data = []
-            //no wifi connection, save as local storage
-            name=$("#name").val();
-            matchnum=$("#matchnum").val();
-            alliance=$("#alliance").val();
-            teamnum=$("#teamnum").val();
-            score=$("#score").val();
-            rp=$("#rp").val();
-            cards=$("#cards").val();
-            autocubesource=$("#autocubesource").val();
-            automobility=$("#automobility").val();
-            autoswitch=$("#autoswitch").val();
-            autoscale=$("#autoscale").val();
-            telecubesource=$("#telecubesource").val();
-            teledied=$("#teledied").val();
-            teleclimb=$("#teleclimb").val();
-            teledefense=$("#teledefense").val();
-            teleforcetimes=$("#teleforcetimes").val();
-            teleforcecube=$("#teleforcecube").val();
-            teleboosttimes=$("#teleboosttimes").val();
-            teleboostcube=$("#teleboostcube").val();
-            telelevitatetimes=$("#telelevitatetimes").val();
-            telelevitatecube=$("#telelevitatecube").val();
-            telered=$("#telered").val();
-            teleblue=$("#teleblue").val();
-            televault=$("#televault").val();
-            telescale=$("#telescale").val();
-            data[0] = name;
-            data[1] = matchnum;
-            data[2] = alliance;
-            data[3] = teamnum;
-            data[4] = score;
-            data[5] = rp;
-            data[6] = cards;
-            data[7] = autocubesource;
-            data[8] = automobility;
-            data[9] = autoswitch;
-            data[10] = autoscale;
-            data[12] = telecubesource;
-            data[13] = teledied;
-            data[14] = teleclimb;
-            data[15] = teledefense;
-            data[16] = teleforcetimes;
-            data[17] = teleforcecube;
-            data[18] = telelevitatetimes;
-            data[19] = telelevitatecube;
-            data[20] = telered;
-            data[21] = teleblue;
-            data[22] = televault;
-            data[23] = teleblue;
-            data[24] = telescale;
-            localStorage.setItem("Match Scout Data", JSON.stringify(data)); 
-          });
-        }
-        else{
-          $("#submit").click(function() {
+         $(document).ready(function(){
+           if(!navigator.onLine) {
+             $("#submit").click(function() {
                var telelevitatetimes, telelevitatecube, name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
+               var data = [];
                //no wifi connection, save as local storage
                name=$("#name").val();
                matchnum=$("#matchnum").val();
@@ -109,62 +41,100 @@
                teleblue=$("#teleblue").val();
                televault=$("#televault").val();
                telescale=$("#telescale").val();
-
-              var dataString = "name=" + name + "&matchnum=" + matchnum + "&alliance=" + alliance +"&teamnum="+teamnum+"&score="+score+"&rp="+rp+"&cards="+cards+"&autosubesource="+autocubesource+"&automobility="+automobility+"&autoswitch="+autoswitch+"&autoscale="+autoscale+"&telecubesource="+telecubesource+"&teledied="+teledied+"&teleclimb="+teleclimb+"&teledefense="+teledefense+"&teleforcetimes="+teleforcetimes+"&teleforcecube="+teleforcecube+"&teleboosttimes="+teleboosttimes+"&teleboostcube="+teleboostcube+"&telelevitatetimes="+telelevitatetimes+"&telelevitatecube="+telelevitatecube+"&telered="+telered+"&teleblue="+teleblue+"&televault="+televault+"&telescale="+telescale;
-                  $.ajax({
-                      type: "POST",
-                      url: "https://nerdyscout2018.000webhostapp.com/main.php",
-                      data: dataString,
-//                       data:{name:name,matchnum:matchnum,alliance:alliance,teamnum:teamnum,score:score,rp:rp,cards:cards,autocubesource:autocubesource,automobility:automobility,autoswitch:autoswitch,autoscale:autoscale,telecubesource:telecubesource,teledied:teledied,teleclimb:teleclimb,teledefense:teledefense,teleforcetimes:teleforcetimes,teleforcecube:teleforcecube,teleboosttimes:teleboosttimes,teleboostcube:teleboostcube,telelevitatetimes:telelevitatetimes,telelevitatecube:telelevitatecube,telered:telered,teleblue:teleblue,televault:televault,telescale:telescale},
-                      // crossDomain: true,
-                      // cache: false,
-                      beforeSend: function() {
-                          //$("#submit").val('Connecting...');
-                          //alert("about to send!");
-                         Materialize.toast("Sending",1000);
-                      },
-                      success: function(data) {
-                          // if (data == "success") {
-                          //     alert("inserted");
-                          //     $("#submit").val('submit');
-                          // } else if (data == "error") {
-                          //     alert("error");
-                          // }
-//                           $("#submit").val('Submit');
-                          Materialize.toast("Successful match scout profile sent!", 4000);
-                          document.getElementById("form").reset();
-                      }
-                  });
-              return false;
-          });
-      }
+               data[0] = name;
+               data[1] = matchnum;
+               data[2] = alliance;
+               data[3] = teamnum;
+               data[4] = score;
+               data[5] = rp;
+               data[6] = cards;
+               data[7] = autocubesource;
+               data[8] = automobility;
+               data[9] = autoswitch;
+               data[10] = autoscale;
+               data[12] = telecubesource;
+               data[13] = teledied;
+               data[14] = teleclimb;
+               data[15] = teledefense;
+               data[16] = teleforcetimes;
+               data[17] = teleforcecube;
+               data[18] = telelevitatetimes;
+               data[19] = telelevitatecube;
+               data[20] = telered;
+               data[21] = teleblue;
+               data[22] = televault;
+               data[23] = teleblue;
+               data[24] = telescale;
+               localStorage.setItem("Match Scout Data", JSON.stringify(data)); 
+             });
+           }
+           else{
+             $("#submit").click(function() {
+                  var telelevitatetimes, telelevitatecube, name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
+                  //no wifi connection, save as local storage
+                  name=$("#name").val();
+                  matchnum=$("#matchnum").val();
+                  alliance=$("#alliance").val();
+                  teamnum=$("#teamnum").val();
+                  score=$("#score").val();
+                  rp=$("#rp").val();
+                  cards=$("#cards").val();
+                  autocubesource=$("#autocubesource").val();
+                  automobility=$("#automobility").val();
+                  autoswitch=$("#autoswitch").val();
+                  autoscale=$("#autoscale").val();
+                  telecubesource=$("#telecubesource").val();
+                  teledied=$("#teledied").val();
+                  teleclimb=$("#teleclimb").val();
+                  teledefense=$("#teledefense").val();
+                  teleforcetimes=$("#teleforcetimes").val();
+                  teleforcecube=$("#teleforcecube").val();
+                  teleboosttimes=$("#teleboosttimes").val();
+                  teleboostcube=$("#teleboostcube").val();
+                  telelevitatetimes=$("#telelevitatetimes").val();
+                  telelevitatecube=$("#telelevitatecube").val();
+                  telered=$("#telered").val();
+                  teleblue=$("#teleblue").val();
+                  televault=$("#televault").val();
+                  telescale=$("#telescale").val();
+                 var dataString = "name=" + name + "&matchnum=" + matchnum + "&alliance=" + alliance +"&teamnum="+teamnum+"&score="+score+"&rp="+rp+"&cards="+cards+"&autosubesource="+autocubesource+"&automobility="+automobility+"&autoswitch="+autoswitch+"&autoscale="+autoscale+"&telecubesource="+telecubesource+"&teledied="+teledied+"&teleclimb="+teleclimb+"&teledefense="+teledefense+"&teleforcetimes="+teleforcetimes+"&teleforcecube="+teleforcecube+"&teleboosttimes="+teleboosttimes+"&teleboostcube="+teleboostcube+"&telelevitatetimes="+telelevitatetimes+"&telelevitatecube="+telelevitatecube+"&telered="+telered+"&teleblue="+teleblue+"&televault="+televault+"&telescale="+telescale;
+                     $.ajax({
+                         type: "POST",
+                         url: "https://nerdyscout2018.000webhostapp.com/main.php",
+                         data: dataString,
+                         beforeSend: function() {
+                            Materialize.toast("Sending",1000);
+                         },
+                         success: function(data) {
+                             Materialize.toast("Successful match scout profile sent!", 4000);
+                             document.getElementById("form").reset();
+                         }
+                     });
+                 return false;
+             });
+           }
+         });
       </script>
    </head>
    <body>
       <div class="nav-wrapper">
-        <nav class="blue white-text">
-          <center>
-           <a class="home center-align" href="index.html">Home |</a>
-           <a class="home center-align" href="pitscouting.html">Pit Scouting |</a>
-           <a class="home center-align" href="matchscouting.html">Match Scouting</a>                 <!-- <center><img src="img/frclogo.png" id="logo" class="center-align"></center> -->
-         </center>
-        </nav>
+         <nav class="blue white-text">
+            <center>
+               <a class="home center-align" href="index.html">Home |</a>
+               <a class="home center-align" href="pitscouting.html">Pit Scouting |</a>
+               <a class="home center-align" href="matchscouting.html">Match Scouting</a>                 <!-- <center><img src="img/frclogo.png" id="logo" class="center-align"></center> -->
+            </center>
+         </nav>
       </div>
       <h3 class="center-align">Match Scouting</h3>
       <div class = "valign-wrapper">
          <div class="valign center-block">
-            <!-- <h1 class = "center-align">NerdyScout2018</h1> -->
             <img style="padding:20px"src="img/frclogo.png" width="300" height="300"/>
             <div class="row center-block" >
-               <!--Since we have the navbar don't really need the buttons -->
-               <!-- <a href="index.html" class = "btn red hoverable">Home</a>
-                  <a class="btn teal hoverable" href="pitscouting.html">Pit Scouting</a> -->
             </div>
          </div>
       </div>
       <div>
-         <!-- Need to find a different to make a form and save the data if this won't work with PHP. For now will
-            continue to use this method -->
          <div class="container">
             <form id="form">
                Name:<br>
