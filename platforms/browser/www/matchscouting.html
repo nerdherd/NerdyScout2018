@@ -23,6 +23,64 @@
       <script src="js/materialize.min.js" charset="utf-8"></script>
       <script type="text/javascript">
       $(document).ready(function() {
+        if(!navigator.onLine) {
+          $("#submit").click(function() {
+            var telelevitatetimes, telelevitatecube, name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
+            var data = []
+            //no wifi connection, save as local storage
+            name=$("#name").val();
+            matchnum=$("#matchnum").val();
+            alliance=$("#alliance").val();
+            teamnum=$("#teamnum").val();
+            score=$("#score").val();
+            rp=$("#rp").val();
+            cards=$("#cards").val();
+            autocubesource=$("#autocubesource").val();
+            automobility=$("#automobility").val();
+            autoswitch=$("#autoswitch").val();
+            autoscale=$("#autoscale").val();
+            telecubesource=$("#telecubesource").val();
+            teledied=$("#teledied").val();
+            teleclimb=$("#teleclimb").val();
+            teledefense=$("#teledefense").val();
+            teleforcetimes=$("#teleforcetimes").val();
+            teleforcecube=$("#teleforcecube").val();
+            teleboosttimes=$("#teleboosttimes").val();
+            teleboostcube=$("#teleboostcube").val();
+            telelevitatetimes=$("#telelevitatetimes").val();
+            telelevitatecube=$("#telelevitatecube").val();
+            telered=$("#telered").val();
+            teleblue=$("#teleblue").val();
+            televault=$("#televault").val();
+            telescale=$("#telescale").val();
+            data[0] = name;
+            data[1] = matchnum;
+            data[2] = alliance;
+            data[3] = teamnum;
+            data[4] = score;
+            data[5] = rp;
+            data[6] = cards;
+            data[7] = autocubesource;
+            data[8] = automobility;
+            data[9] = autoswitch;
+            data[10] = autoscale;
+            data[12] = telecubesource;
+            data[13] = teledied;
+            data[14] = teleclimb;
+            data[15] = teledefense;
+            data[16] = teleforcetimes;
+            data[17] = teleforcecube;
+            data[18] = telelevitatetimes;
+            data[19] = telelevitatecube;
+            data[20] = telered;
+            data[21] = teleblue;
+            data[22] = televault;
+            data[23] = teleblue;
+            data[24] = telescale;
+            localStorage.setItem("Match Scout Data", JSON.stringify(data)); 
+          });
+        }
+        else{
           $("#submit").click(function() {
                var telelevitatetimes, telelevitatecube, name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
                //no wifi connection, save as local storage
@@ -79,7 +137,7 @@
                   });
               return false;
           });
-      });
+      }
       </script>
    </head>
    <body>

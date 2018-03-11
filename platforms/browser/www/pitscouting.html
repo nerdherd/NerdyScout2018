@@ -23,6 +23,39 @@
     <script src="js/materialize.min.js" charset="utf-8"></script>
     <script  type="text/javascript">
           $(document).ready(function() {
+            /*
+              Case: No data/wifi
+            */
+            if(!navigator.onLine) {
+              $("#submit").click(function() {
+                var pitgroup, pitteam, pitauto, pitautoabilities,pitteleop,pitintake,pitscore,pitclimb,pitimage;
+                var data = [];
+                //no wifi connection, save as local storage
+                pitgroup=$("#pitgroup").val();
+                pitteam=$("#pitteam").val();
+                pitauto=$("#pitauto").val();
+                pitautoabilities=$("#pitautoabilities").val();
+                pitteleop=$("#pitteleop").val();
+                pitintake=$("#pitintake").val();
+                pitscore=$("#pitscore").val();
+                pitclimb=$("#pitclimb").val();
+                pitimage=$("#pitimage").val();
+                data[0] = pitgroup;
+                data[1] = pitteam;
+                data[2] = pitauto;
+                data[3] = pitautoabilities;
+                data[4] = pitteleop;
+                data[5] = pitintake;
+                data[6] = pitscore;
+                data[7] = pitclimb;
+                data[8] = pitimage;
+                localStorage.setItem("Pit Scout Data", JSON.stringify(data)); 
+              }
+            }
+            /*
+                IF IS CONNECTED TO INTERNET
+            */
+            else{
               $("#submit").click(function() {
                    var pitgroup, pitteam, pitauto, pitautoabilities,pitteleop,pitintake,pitscore,pitclimb,pitimage;
                    //no wifi connection, save as local storage
@@ -52,6 +85,7 @@
                   return false;
               });
           });
+          }
     </script>
   </head>
   <body>
@@ -80,31 +114,31 @@
       <div class="container">
         <form id = "form" method="post">
           Your Group Number:<br>
-          <input type="text" name="pitgroup" value="">
+          <input type="text" id="pitgroup" value="">
           Team Number:<br>
-          <input type="text" name="pitteam" value="">
+          <input type="text" id="pitteam" value="">
           <br>
           Auto(Description):<br>
-          <input type="text" name="pitauto" value="">
+          <input type="text" id="pitauto" value="">
           <br>
           Auto Current Abilities:<br>
-          <input type="text" name="pitautoabilities" value="">
+          <input type="text" id="pitautoabilities" value="">
           <br>
           Teleop(Description):<br>
-          <input type="text" name="pitteleop" value="">
+          <input type="text" id="pitteleop" value="">
           <br>
           Cube Intake(Prefered):<br>
-          <input type="text" name="pitintake" value="">
+          <input type="text" id="pitintake" value="">
           <br>
           Scoring Capabilities:<br>
-          <input type="text" name="pitscore" value="">
+          <input type="text" id="pitscore" value="">
           <br>
           Climb?(Yes or No):<br>
-          <input type="text" name="pitclimb" value="">
+          <input type="text" id="pitclimb" value="">
           <br>
           Picture:<br>
           <input type="file" accept="image/*" capture="camera" id = "pitimage" />
-          <br>
+          <br><br><br><br>
           <a class = "btn blue" id="submit" value="Submit"/>Submit</a>
         </form>
       </div>
