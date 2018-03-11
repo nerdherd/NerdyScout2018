@@ -1,33 +1,33 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:1-24:12
-INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:1-24:12
-INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:1-24:12
-INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:1-24:12
-INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:1-24:12
-INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:1-24:12
-INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:1-24:12
+ADDED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:1-24:12
+INJECTED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:1-24:12
+INJECTED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:1-24:12
+INJECTED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:1-24:12
+INJECTED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:1-24:12
+INJECTED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:1-24:12
+INJECTED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:1-24:12
 	package
-		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:21:7-35
-		INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml
-		INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml
+		ADDED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:21:7-35
+		INJECTED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml
+		INJECTED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml
 	android:versionName
-		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:21:36-61
-		INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml
-		INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml
+		ADDED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:21:36-61
+		INJECTED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml
+		INJECTED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml
 	android:debuggable
-		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:11-37
+		ADDED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:11-37
 	xmlns:android
-		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:38-96
+		ADDED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:20:38-96
 	android:versionCode
-		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:21:62-85
-		INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml
-		INJECTED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml
+		ADDED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:21:62-85
+		INJECTED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml
+		INJECTED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml
 uses-sdk
-ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:22:5-44
+ADDED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:22:5-44
 	android:minSdkVersion
-		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:22:15-41
+		ADDED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:22:15-41
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:23:5-67
+ADDED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from C:\Users\Albert\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:23:22-64
+		ADDED from C:\Users\IsaacAddis\Desktop\NerdyScout2018\platforms\android\CordovaLib\AndroidManifest.xml:23:22-64

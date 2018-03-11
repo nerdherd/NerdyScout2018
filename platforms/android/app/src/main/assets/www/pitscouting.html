@@ -1,25 +1,92 @@
 <html>
   <head>
     <!--
-    Customize this policy to fit your own app's needs. For more guidance, see:
-        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-    Some notes:
-        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-            * Enable inline JS: add 'unsafe-inline' to default-src
-    -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+       Customize this policy to fit your own app's needs. For more guidance, see:
+           https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+       Some notes:
+           * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+           * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+           * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+               * Enable inline JS: add 'unsafe-inline' to default-src
+       -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+    <meta id="format-detection" content="telephone=no">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;style-src * 'unsafe-inline' 'self' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;img-src * data: 'unsafe-inline' 'self' content:;fmedia-src mediastream;"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" /> -->
+    <meta id="msapplication-tap-highlight" content="no">
+    <meta id="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/matchscouting.css">
     <link rel="stylesheet" href="css/materialize.min.css">
     <title>NerdyScout</title>
-    <!-- <div class="nav">
-      <a class="home" href="index.html">Home</a>
-      <a class="home" href="pitscouting.html">Pit Scouting</a>
-      <a class="home" href="matchscouting.html">Match Scouting</a>
-    </div> -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/jquery.min.js" charset="utf-8"></script>
+    <script src="js/materialize.min.js" charset="utf-8"></script>
+    <script  type="text/javascript">
+          $(document).ready(function() {
+            /*
+              Case: No data/wifi
+            */
+            if(!navigator.onLine) {
+              $("#submit").click(function() {
+                var pitgroup, pitteam, pitauto, pitautoabilities,pitteleop,pitintake,pitscore,pitclimb,pitimage;
+                var data = [];
+                //no wifi connection, save as local storage
+                pitgroup=$("#pitgroup").val();
+                pitteam=$("#pitteam").val();
+                pitauto=$("#pitauto").val();
+                pitautoabilities=$("#pitautoabilities").val();
+                pitteleop=$("#pitteleop").val();
+                pitintake=$("#pitintake").val();
+                pitscore=$("#pitscore").val();
+                pitclimb=$("#pitclimb").val();
+                pitimage=$("#pitimage").val();
+                data[0] = pitgroup;
+                data[1] = pitteam;
+                data[2] = pitauto;
+                data[3] = pitautoabilities;
+                data[4] = pitteleop;
+                data[5] = pitintake;
+                data[6] = pitscore;
+                data[7] = pitclimb;
+                data[8] = pitimage;
+                localStorage.setItem("Pit Scout Data", JSON.stringify(data)); 
+              });
+            }
+            /*
+                IF IS CONNECTED TO INTERNET
+            */
+            else{
+              $("#submit").click(function() {
+                   var pitgroup, pitteam, pitauto, pitautoabilities,pitteleop,pitintake,pitscore,pitclimb,pitimage;
+                   //no wifi connection, save as local storage
+                   pitgroup=$("#pitgroup").val();
+                   pitteam=$("#pitteam").val();
+                   pitauto=$("#pitauto").val();
+                   pitautoabilities=$("#pitautoabilities").val();
+                   pitteleop=$("#pitteleop").val();
+                   pitintake=$("#pitintake").val();
+                   pitscore=$("#pitscore").val();
+                   pitclimb=$("#pitclimb").val();
+                   pitimage=$("#pitimage").val();
+
+                  var dataString = "pitgroup="+pitgroup+"&pitteam="+pitteam+"&pitauto="+pitauto+"&pitautoabilities="+pitautoabilities+"&pitteleop="+pitteleop+"&pitintake="+pitintake+"&pitscore="+pitscore+"&pitclimb="+pitclimb+"&pitimage="+pitimage;
+                      $.ajax({
+                          type: "POST",
+                          url: "https://nerdyscout2018.000webhostapp.com/pit.php",
+                          data: dataString,
+                          beforeSend: function() {
+                             Materialize.toast("Sending",1000);
+                          },
+                          success: function(data) {
+                              Materialize.toast("Successful pit scout profile sent!", 4000);
+                              document.getElementById("form").reset();
+                          }
+                      });
+                  return false;
+              });
+          }
+        });
+    </script>
   </head>
   <body>
      <div class="nav-wrapper">
@@ -27,60 +94,47 @@
           <center>
            <a class="home center-align" href="index.html">Home |</a>
            <a class="home center-align" href="pitscouting.html">Pit Scouting |</a>
-           <a class="home center-align" href="matchscouting.html">Match Scouting</a>                 <!-- <center><img src="img/frclogo.png" id="logo" class="center-align"></center> -->
+           <a class="home center-align" href="matchscouting.html">Match Scouting</a>                 
          </center>
         </nav>
      </div>
      <h3 class="center-align">Pit Scouting</h3>
      <div class = "valign-wrapper">
         <div class="valign center-block">
-           <!-- <h1 class = "center-align">NerdyScout2018</h1> -->
            <img style="padding:20px"src="img/frclogo.png" width="300" height="300"/>
            <div class="row center-block" >
-              <!--Since we have the navbar don't really need the buttons -->
-              <!-- <a href="index.html" class = "btn red hoverable">Home</a>
-                 <a class="btn teal hoverable" href="pitscouting.html">Pit Scouting</a> -->
            </div>
         </div>
      </div>
-        <!-- Need to find a different to make a form and save the data if this won't work with PHP. For now will
-        continue to use this method -->
       <div class="container">
-        <form action="results.php" method="post">
-          Group Number:<br>
-          <input type="text" name="pitgroup" value="">
-          <br>
+        <form id = "form" method="post">
+          Your Group Number:<br>
+          <input type="text" id="pitgroup" value="">
           Team Number:<br>
-          <input type="text" name="pitteam" value="">
+          <input type="text" id="pitteam" value="">
           <br>
-          Auto(Desc):<br>
-          <input type="text" name="pitauto" value="">
+          Auto(Description):<br>
+          <input type="text" id="pitauto" value="">
           <br>
           Auto Current Abilities:<br>
-          <input type="text" name="pitautoabilities" value="">
+          <input type="text" id="pitautoabilities" value="">
           <br>
-          Teleop(Desc):<br>
-          <input type="text" name="pitteleop" value="">
+          Teleop(Description):<br>
+          <input type="text" id="pitteleop" value="">
           <br>
           Cube Intake(Prefered):<br>
-          <input type="text" name="pitintake" value="">
+          <input type="text" id="pitintake" value="">
           <br>
           Scoring Capabilities:<br>
-          <input type="text" name="pitscore" value="">
+          <input type="text" id="pitscore" value="">
           <br>
           Climb?(Yes or No):<br>
-          <input type="text" name="pitclimb" value="">
+          <input type="text" id="pitclimb" value="">
           <br>
-          <!--
-          Robot Weight Without Batteries/Bumpers (lbs):<br>
-          <input type="text" name="pitweight" value="">
-          <br>
--->
           Picture:<br>
-          <input type="text" name="pitpic" value="">
-          <br>
-          <!-- <input class = "btn blue white-text" value = "submit" onclick = "Materialize.toast('Pit Scout Profile Sent!', 4000)"> -->
-          <button type="submit" class = "btn blue" id="submit" value="Submit" onclick = "Materialize.toast('Pit Scout Profile Sent!', 4000)"/>Submit</button>
+          <input type="file" accept="image/*" capture="camera" id = "pitimage" />
+          <br><br><br><br>
+          <a class = "btn blue" id="submit" value="Submit"/>Submit</a>
         </form>
       </div>
     </body>
