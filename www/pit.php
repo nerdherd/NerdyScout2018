@@ -18,7 +18,7 @@
       while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
         echo "{$row['Field']} - {$row['Type']}";
       }
-      $q = mysqli_query($con, "INSERT INTO pitScout (pitgroup,pitteam,pitauto,pitautoabilities,pitteleop,pitintake,pitscore,pitclimb, pitimage) VALUES ('pitgroup','pitteam','pitauto','pitautoabilities','pitteleop','pitintake','pitscore','pitclimb','pitimage')");
+      $q = mysqli_query($con, "INSERT INTO pitScout (pitgroup,pitteam,pitauto,pitautoabilities,pitteleop,pitintake,pitscore,pitclimb, pitimage) VALUES ('$pitgroup','$pitteam','$pitauto','$pitautoabilities','$pitteleop','$pitintake','$pitscore','$pitclimb','$pitimage')");
 
       if($q) {
         echo "Records inserted successfully.";
