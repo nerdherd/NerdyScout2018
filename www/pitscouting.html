@@ -43,23 +43,52 @@
            </div>
         </div>
      </div>
-        <!-- Need to find a different to make a form and save the data if this won't work with PHP. For now will
-        continue to use this method -->
+     <script>
+           $(document).ready(function() {
+               $("#submit").click(function() {
+                    var pitgroup, pitteam, pitauto, pitautoabilities,pitteleop,pitintake,pitscore,pitclimb,pitimage;
+                    //no wifi connection, save as local storage
+                    pitgroup=$("#pitgroup").val();
+                    pitteam=$("#pitteam").val();
+                    pitauto=$("#pitauto").val();
+                    pitautoabilities=$("#pitautoabilities").val();
+                    pitteleop=$("#pitteleop").val();
+                    pitintake=$("#pitintake").val();
+                    pitscore=$("#pitscore").val();
+                    pitclimb=$("#pitclimb").val();
+                    pitimage=$("#pitimage").val();
+
+                   var dataString = "pitgroup="+pitgroup+"&pitteam="+pitteam+"&pitauto="+pitauto+"&pitautoabilities="+pitautoabilities+"&pitteleop="+pitteleop+"&pitintake="+pitintake+"&pitscore="+pitscore+"&pitclimb="+pitclimb+"&pitimage="+pitimage;
+                       $.ajax({
+                           type: "POST",
+                           url: "https://nerdyscout2018.000webhostapp.com/pit.php",
+                           data: dataString,
+                           beforeSend: function() {
+                              Materialize.toast("Sending",1000);
+                           },
+                           success: function(data) {
+                               Materialize.toast("Successful pit scout profile sent!", 4000);
+                               document.getElementById("form").reset();
+                           }
+                       });
+                   return false;
+               });
+           });
+     </script>
       <div class="container">
-        <form action="results.php" method="post">
-          Group Number:<br>
+        <form action="" method="post">
+          Your Group Number:<br>
           <input type="text" name="pitgroup" value="">
-          <br>
           Team Number:<br>
           <input type="text" name="pitteam" value="">
           <br>
-          Auto(Desc):<br>
+          Auto(Description):<br>
           <input type="text" name="pitauto" value="">
           <br>
           Auto Current Abilities:<br>
           <input type="text" name="pitautoabilities" value="">
           <br>
-          Teleop(Desc):<br>
+          Teleop(Description):<br>
           <input type="text" name="pitteleop" value="">
           <br>
           Cube Intake(Prefered):<br>
@@ -71,16 +100,10 @@
           Climb?(Yes or No):<br>
           <input type="text" name="pitclimb" value="">
           <br>
-          <!--
-          Robot Weight Without Batteries/Bumpers (lbs):<br>
-          <input type="text" name="pitweight" value="">
-          <br>
--->
           Picture:<br>
-          <input type="text" name="pitpic" value="">
+          <a class = "btn"><input type="file" accept="image/*" capture="camera" id = "pitimage" /></a>
           <br>
-          <!-- <input class = "btn blue white-text" value = "submit" onclick = "Materialize.toast('Pit Scout Profile Sent!', 4000)"> -->
-          <button type="submit" class = "btn blue" id="submit" value="Submit" onclick = "Materialize.toast('Pit Scout Profile Sent!', 4000)"/>Submit</button>
+          <input class = "btn blue white-text" value = "submit"> -->
         </form>
       </div>
     </body>
