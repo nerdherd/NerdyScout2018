@@ -32,5 +32,5 @@
     <plugin name="cordova-plugin-indexedDB" spec="~0.1.4" />
     <engine name="android" spec="^7.0.0" />
     <engine name="browser" spec="^5.0.3" />
-    <engine name="ios" spec="^4.5.4" />
+    <engine name="ios" spec="git+https://github.com/apache/cordova-ios.git" />
 </widget>
