@@ -1,0 +1,159 @@
+<html>
+   <head>
+      <!--
+         Customize this policy to fit your own app's needs. For more guidance, see:
+             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+         Some notes:
+             * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+             * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                 * Enable inline JS: add 'unsafe-inline' to default-src
+         -->
+      <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+      <meta id="format-detection" content="telephone=no">
+      <!-- <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;style-src * 'unsafe-inline' 'self' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;img-src * data: 'unsafe-inline' 'self' content:;fmedia-src mediastream;"> -->
+      <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" /> -->
+      <meta id="msapplication-tap-highlight" content="no">
+      <meta id="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+      <link rel="stylesheet" type="text/css" href="css/matchscouting.css">
+      <link rel="stylesheet" href="css/materialize.min.css">
+      <title>NerdyScout</title>
+      <script type="text/javascript" src="cordova.js"></script>
+      <script src="js/jquery.min.js" charset="utf-8"></script>
+      <script src="js/materialize.min.js" charset="utf-8"></script>
+      <script  type="text/javascript">
+               // function clear(){
+               //   window.localStorage.clear();
+               //   Materialize.toast("Data cleared.", 4000);
+               // }
+               function push(mode, data){
+                  if(mode=="Pit Scout Data"){
+                    var pitgroup, pitteam, pitauto, pitautoabilities,pitteleop,pitintake,pitscore,pitclimb,pitimage;
+                    pitgroup=data[0];
+                    pitteam=data[1];
+                    pitauto=data[2];
+                    pitautoabilities=data[3];
+                    pitteleop=data[4];
+                    pitintake=data[5];
+                    pitscore=data[6];
+                    pitclimb=data[7];
+                    pitimage=data[8];
+                    var dataString = "pitgroup="+pitgroup+"&pitteam="+pitteam+"&pitauto="+pitauto+"&pitautoabilities="+pitautoabilities+"&pitteleop="+pitteleop+"&pitintake="+pitintake+"&pitscore="+pitscore+"&pitclimb="+pitclimb+"&pitimage="+pitimage;
+                    $.ajax({
+                        type: "POST",
+                        url: "https://nerdyscout2018.000webhostapp.com/pit.php",
+                        data: dataString,
+                        beforeSend: function() {
+                           Materialize.toast("Sending",1000);
+                        },
+                        success: function(data) {
+                            Materialize.toast("Successful pit scout profile sent!", 4000);
+                            document.getElementById("form").reset();
+                            localStorage.clear();
+                            Materialize.toast("Cleared local cache.", 1000);
+                        }
+                    });
+                  }
+                  else if(mode=="Match Scout Data"){
+                    var telelevitatetimes, telelevitatecube, name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
+                    name = data[0];
+                    matchnum = data[1];
+                    alliance = data[2];
+                    teamnum = data[3];
+                    score = data[4];
+                    rp = data[5];
+                    cards = data[6];
+                    autocubesource = data[7];
+                    automobility = data[8];
+                    autoswitch = data[9];
+                    autoscale = data[10];
+                    telecubesource = data[11];
+                    teledied = data[12];
+                    teleclimb = data[13];
+                    teledefense = data[14];
+                    teleforcetimes = data[15];
+                    teleforcecube = data[16];
+                    telelevitatetimes = data[17];
+                    telelevitatecube = data[18];
+                    telered = data[19];
+                    teleblue = data[20];
+                    televault = data[21];
+                    teleblue = data[22];
+                    telescale = data[23];
+                    var dataString = "name=" + name + "&matchnum=" + matchnum + "&alliance=" + alliance +"&teamnum="+teamnum+"&score="+score+"&rp="+rp+"&cards="+cards+"&autosubesource="+autocubesource+"&automobility="+automobility+"&autoswitch="+autoswitch+"&autoscale="+autoscale+"&telecubesource="+telecubesource+"&teledied="+teledied+"&teleclimb="+teleclimb+"&teledefense="+teledefense+"&teleforcetimes="+teleforcetimes+"&teleforcecube="+teleforcecube+"&teleboosttimes="+teleboosttimes+"&teleboostcube="+teleboostcube+"&telelevitatetimes="+telelevitatetimes+"&telelevitatecube="+telelevitatecube+"&telered="+telered+"&teleblue="+teleblue+"&televault="+televault+"&telescale="+telescale;
+                    $.ajax({
+                        type: "POST",
+                        url: "https://nerdyscout2018.000webhostapp.com/main.php",
+                        data: dataString,
+                        beforeSend: function() {
+                           Materialize.toast("Sending",1000);
+                        },
+                        success: function(data) {
+                            Materialize.toast("Successful match scout profile sent!", 4000);
+                            document.getElementById("form").reset();
+                            localStorage.clear();
+                            Materialize.toast("Cleared local cache.", 1000);
+                        }
+                    });
+                  }
+               }
+               $(document).ready(function() {
+                 /*
+                   Case: No data/wifi
+                 */
+                 if(!navigator.onLine) {
+                
+                 }
+                 /*
+                     IF IS CONNECTED TO INTERNET
+                 */
+                 else{
+                   var storedPitData = JSON.parse(localStorage.getItem("Pit Scout Data"));
+                   var storedMatchData = JSON.parse(localStorage.getItem("Match Scout Data"));
+                   $("#pitdata").text(storedPitData);
+                   $("#matchdata").text(storedMatchData);
+                   $("#cleardata").click(function() {
+                     localStorage.clear();
+                     Materialize.toast("Cleared local cache.", 1000);
+                   });
+                   $("#pushpitbtn").click(function() {
+                     push("Pit Scout Data", storedPitData);
+                   });
+                   $("#pushmatchbtn").click(function() {
+                     push("Match Scout Data", storedMatchData);
+                   });
+                 }
+               });
+      </script>
+   </head>
+   <body>
+      <div class="nav-wrapper">
+         <nav class="blue white-text">
+            <center>
+               <a class="home center-align" href="index.html">Home |</a>
+               <a class="home center-align" href="pitscouting.html">Pit Scouting |</a>
+               <a class="home center-align" href="matchscouting.html">Match Scouting</a>                 <!-- <center><img src="img/frclogo.png" id="logo" class="center-align"></center> -->
+            </center>
+         </nav>
+      </div>
+      <h3 class="center-align">Push to Network</h3>
+      <div class = "valign-wrapper">
+         <div class="valign center-block">
+            <h5 class="center-align">This is the data you have locally stored: </h5>
+            <h5 class="center-align">Pit Scout:</h5>
+            <div id="pitdata"></div>
+            <h5 class="center-align">Match Scout:</h5>
+            <div id="matchdata"></div>
+            <p class="center-align light">Now, would you like to... </p>
+            <div class="row">
+               <a class="btn blue white-text" id = "cleardata">CLEAR DATA</a>
+               <a class="btn blue white-text" id = "pushpitbtn">PUSH PIT SCOUT ONLINE</a>
+               <a class="btn blue white-text" id = "pushmatchbtn">PUSH MATCH SCOUT ONLINE</a>
+            </div>
+         </div>
+      </div>
+      </div>
+      <div class="container">
+      </div>
+   </body>
+</html>
