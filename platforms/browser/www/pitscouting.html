@@ -29,7 +29,11 @@
             if(!navigator.onLine) {
               $("#submit").click(function() {
                 var pitgroup, pitteam, pitauto, pitautoabilities,pitteleop,pitintake,pitscore,pitclimb,pitimage;
-                var data = [];
+                if (localStorage.getItem("Pit Scout Data") === null) {
+                  localStorage.setItem("Pit Scout Data", JSON.stringify(data)); 
+                }
+                var data = JSON.parse(localStorage.getItem("Pit Scout Data"));
+                var len = data.length;
                 //no wifi connection, save as local storage
                 pitgroup=$("#pitgroup").val();
                 pitteam=$("#pitteam").val();
@@ -50,6 +54,7 @@
                 data[7] = pitclimb;
                 data[8] = pitimage;
                 localStorage.setItem("Pit Scout Data", JSON.stringify(data)); 
+                Materialize.toast("Saved locally. Refer back to 'push to network' page.", 5000);
               });
             }
             /*
