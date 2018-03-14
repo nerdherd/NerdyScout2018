@@ -14,7 +14,11 @@
            if(!navigator.onLine) {
              $("#submit").click(function() {
                var telelevitatetimes, telelevitatecube, name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
-               var data = [];
+               if (localStorage.getItem("Match Scout Data") === null) {
+                 localStorage.setItem("Match Scout Data", JSON.stringify(data)); 
+               }
+               var data = JSON.parse(localStorage.getItem("Match Scout Data"));
+               var len = data.length;
                //no wifi connection, save as local storage
                name=$("#name").val();
                matchnum=$("#matchnum").val();
@@ -41,30 +45,30 @@
                teleblue=$("#teleblue").val();
                televault=$("#televault").val();
                telescale=$("#telescale").val();
-               data[0] = name;
-               data[1] = matchnum;
-               data[2] = alliance;
-               data[3] = teamnum;
-               data[4] = score;
-               data[5] = rp;
-               data[6] = cards;
-               data[7] = autocubesource;
-               data[8] = automobility;
-               data[9] = autoswitch;
-               data[10] = autoscale;
-               data[11] = telecubesource;
-               data[12] = teledied;
-               data[13] = teleclimb;
-               data[14] = teledefense;
-               data[15] = teleforcetimes;
-               data[16] = teleforcecube;
-               data[17] = telelevitatetimes;
-               data[18] = telelevitatecube;
-               data[19] = telered;
-               data[20] = teleblue;
-               data[21] = televault;
-               data[22] = teleblue;
-               data[23] = telescale;
+               data[len][0] = name;
+               data[len][1] = matchnum;
+               data[len][2] = alliance;
+               data[len][3] = teamnum;
+               data[len][4] = score;
+               data[len][5] = rp;
+               data[len][6] = cards;
+               data[len][7] = autocubesource;
+               data[len][8] = automobility;
+               data[len][9] = autoswitch;
+               data[len][10] = autoscale;
+               data[len][11] = telecubesource;
+               data[len][12] = teledied;
+               data[len][13] = teleclimb;
+               data[len][14] = teledefense;
+               data[len][15] = teleforcetimes;
+               data[len][16] = teleforcecube;
+               data[len][17] = telelevitatetimes;
+               data[len][18] = telelevitatecube;
+               data[len][19] = telered;
+               data[len][20] = teleblue;
+               data[len][21] = televault;
+               data[len][22] = teleblue;
+               data[len][23] = telescale;
                localStorage.setItem("Match Scout Data", JSON.stringify(data)); 
              });
            }
