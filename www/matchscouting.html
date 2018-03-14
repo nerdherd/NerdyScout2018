@@ -70,6 +70,7 @@
                data[len][22] = teleblue;
                data[len][23] = telescale;
                localStorage.setItem("Match Scout Data", JSON.stringify(data)); 
+               Materialize.toast("Saved locally. Refer back to 'push to network' page.", 5000);
              });
            }
            else{
