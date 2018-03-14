@@ -7,8 +7,11 @@ FRC Team 687's scouting app for the 2018 game, Power Up.
 
 ### Where do I download?
 
+Android:
 For now, download from [github.com/isaacaddis' website](https://isaacaddis.github.io/NerdyScout2018.apk). 
 
+iOS:
+For the time being, talk to [github.com/isaacaddis](https://github.com/isaacaddis), [github.com/tedklin](https://github.com/tedklin)
 
 #### For development:
 
