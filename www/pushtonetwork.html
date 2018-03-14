@@ -29,16 +29,16 @@
          function push(mode, data){
             if(mode=="Pit Scout Data"){
               var pitgroup, pitteam, pitauto, pitautoabilities,pitteleop,pitintake,pitscore,pitclimb,pitimage;
-              for(int i =0; i<data.length;i++){
-                pitgroup=data[i][0];
-                pitteam=data[i][1];
-                pitauto=data[i][2];
-                pitautoabilities=data[i][3];
-                pitteleop=data[i][4];
-                pitintake=data[i][5];
-                pitscore=data[i][6];
-                pitclimb=data[i][7];
-                pitimage=data[i][8];  
+   
+                pitgroup=data[0];
+                pitteam=data[1];
+                pitauto=data[2];
+                pitautoabilities=data[3];
+                pitteleop=data[4];
+                pitintake=data[5];
+                pitscore=data[6];
+                pitclimb=data[7];
+                pitimage=data[8];  
                 var dataString = "pitgroup="+pitgroup+"&pitteam="+pitteam+"&pitauto="+pitauto+"&pitautoabilities="+pitautoabilities+"&pitteleop="+pitteleop+"&pitintake="+pitintake+"&pitscore="+pitscore+"&pitclimb="+pitclimb+"&pitimage="+pitimage;
                 $.ajax({
                     type: "POST",
@@ -55,35 +55,34 @@
                 document.getElementById("form").reset();
                 localStorage.clear();
                 Materialize.toast("Cleared local cache.", 1000);
-              }
+
             }
             else if(mode=="Match Scout Data"){
               var telelevitatetimes, telelevitatecube, name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
-              for(int j = 0; j<data.length){
-                data[j][0] = name;
-                data[j][1] = matchnum;
-                data[j][2] = alliance;
-                data[j][3] = teamnum;
-                data[j][4] = score;
-                data[j][5] = rp;
-                data[j][6] = cards;
-                data[j][7] = autocubesource;
-                data[j][8] = automobility;
-                data[j][9] = autoswitch;
-                data[j][10] = autoscale;
-                data[j][11] = telecubesource;
-                data[j][12] = teledied;
-                data[j][13] = teleclimb;
-                data[j][14] = teledefense;
-                data[j][15] = teleforcetimes;
-                data[j][16] = teleforcecube;
-                data[j][17] = telelevitatetimes;
-                data[j][18] = telelevitatecube;
-                data[j][19] = telered;
-                data[j][20] = teleblue;
-                data[j][21] = televault;
-                data[j][22] = teleblue;
-                data[j][23] = telescale;
+                data[0] = name;
+                data[1] = matchnum;
+                data[2] = alliance;
+                data[3] = teamnum;
+                data[4] = score;
+                data[5] = rp;
+                data[6] = cards;
+                data[7] = autocubesource;
+                data[8] = automobility;
+                data[9] = autoswitch;
+                data[10] = autoscale;
+                data[11] = telecubesource;
+                data[12] = teledied;
+                data[13] = teleclimb;
+                data[14] = teledefense;
+                data[15] = teleforcetimes;
+                data[16] = teleforcecube;
+                data[17] = telelevitatetimes;
+                data[18] = telelevitatecube;
+                data[19] = telered;
+                data[20] = teleblue;
+                data[21] = televault;
+                data[22] = teleblue;
+                data[23] = telescale;
                 var dataString = "name=" + name + "&matchnum=" + matchnum + "&alliance=" + alliance +"&teamnum="+teamnum+"&score="+score+"&rp="+rp+"&cards="+cards+"&autosubesource="+autocubesource+"&automobility="+automobility+"&autoswitch="+autoswitch+"&autoscale="+autoscale+"&telecubesource="+telecubesource+"&teledied="+teledied+"&teleclimb="+teleclimb+"&teledefense="+teledefense+"&teleforcetimes="+teleforcetimes+"&teleforcecube="+teleforcecube+"&teleboosttimes="+teleboosttimes+"&teleboostcube="+teleboostcube+"&telelevitatetimes="+telelevitatetimes+"&telelevitatecube="+telelevitatecube+"&telered="+telered+"&teleblue="+teleblue+"&televault="+televault+"&telescale="+telescale;
                 $.ajax({
                     type: "POST",
@@ -96,7 +95,7 @@
                         Materialize.toast("Successful match scout profile sent!", 500);
                     }
                 });
-            }
+            
             Materialize.toast("Successfully sent local data!", 4000);
             document.getElementById("form").reset();
             localStorage.clear();

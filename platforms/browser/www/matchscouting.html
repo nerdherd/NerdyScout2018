@@ -11,9 +11,10 @@
       <script src="js/materialize.min.js" charset="utf-8"></script>
       <script type="text/javascript">
          $(document).ready(function(){
-           if(!navigator.onLine) {
+           if(navigator.onLine) {
              $("#submit").click(function() {
                var telelevitatetimes, telelevitatecube, name,matchnum,alliance,teamnum,score,rp,cards,autocubesource,automobility,autoswitch,autoscale,telecubesource,teledied,teleclimb,teledefense,teleforcetimes,teleforcecube,teleboosttimes,teleboostcube,telered,teleblue,televault,telescale;
+               var data = [];
                if (localStorage.getItem("Match Scout Data") === null) {
                  localStorage.setItem("Match Scout Data", JSON.stringify(data)); 
                }
@@ -71,6 +72,7 @@
                data[len][23] = telescale;
                localStorage.setItem("Match Scout Data", JSON.stringify(data)); 
                Materialize.toast("Saved locally. Refer back to 'push to network' page.", 5000);
+               document.getElementById("form").reset();
              });
            }
            else{
