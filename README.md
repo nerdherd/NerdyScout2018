@@ -11,7 +11,7 @@ Android:
 For now, download from [github.com/isaacaddis' website](https://isaacaddis.github.io/NerdyScout2018.apk). 
 
 iOS:
-For the time being, talk to [github.com/isaacaddis](https://github.com/isaacaddis), [github.com/tedklin](https://github.com/tedklin)
+For the time being, talk to [github.com/isaacaddis](https://github.com/isaacaddis), or [github.com/tedklin](https://github.com/tedklin)
 
 #### For development:
 
